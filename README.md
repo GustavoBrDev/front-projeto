@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Conselho do Estudante
 
-## Getting Started
+O conselho do Estudante é uma aplicação Web responsiva para todos os dispositivos, com foco principal para a versão **Desktop** e em secundário para **celulares**. Esse projeto foi solicitado pela equipe pedagógica da instituição com ínicio do desenvolvimento em Fevereiro de 2025 e conclusão estima em Abril do mesmo ano.
 
-First, run the development server:
+Este projeto foi dividido em dois repositórios especificos, um para o **frontend (feito em Next e React)** e outro para o **backend (feito com Spring Boot)**. Este repositório é dedicado ao desenvolvimento frontend, você pode acessar o outro repositório [clicando aqui](https://github.com/GustavoBrDev/projeto-conselho).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ❗ Funcionalidades do Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> * O projeto deve suportar 5 tipos de usuários: **alunos, representantes, professores, equipe pedagógica (técnico e orientador), supervisor e um administrador**;
+> * O projeto deve permitir que os **alunos** sejam capazes de **visualizar o histórico de feedbacks, alterar configurações básicas, utilizar o chat integrado e visualizar seu perfil**;
+> * O projeto deve permitir que os **representantes** sejam capazes de **visualizar o histórico de feedbacks, alterar configurações básicas, utilizar o chat integrado, visualizar seu perfil e cadastrar os pré-conselhos da turma**;
+> * O projeto deve permitir que os **professores** sejam capazes de **visualizar o histórico de feedbacks (por turma / disciplina), alterar configurações básicas, visualizar seu perfil, utilizar o chat integrado, cadastrar um pré-conselho sobre os alunos e visualizar o mesmo**;
+> * O projeto deve permitir que os **técnicos pedagógicos** sejam capazes de **alterar configurações básicas, visualizar seu perfil, gerenciar conselhos de classe, visualizar dashboards, utilizar o chat integrado, gerenciar usuários (supervisores, professores, alunos e representantes), gerenciar turmas (importação com CSV), gerenciar cursos, gerenciar disciplinas e gerenciar professores PCP**;
+> * O projeto deve permitir que os **orientadores pedagógicos** sejam capazes de **alterar configurações básicas, visualizar seu perfil, gerenciar conselhos de classe, visualizar dashboards, utilizar o chat integrado, gerenciar usuários (supervisores, professores, alunos e representantes), gerenciar turmas (importação com CSV), gerenciar cursos, gerenciar disciplinas, gerenciar professores PCP e gerencar a equipe pedagógica**;
+> * O projeto deve constar constar com um perfil de **administrador** que será responsável por gerenciar os usuários, principalmente os **orientadores pedagógicos**.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 💻 Sobre o Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+O **Frontend** será construído utilizando o **Javascript** juntamente com o framework **Next** e o **React**. Além disso, foi utilizado bibliotecas de UI para prover alguns componentes prontos e agilizar o desenvolvimento do projeto. Foi optado pelo uso incial do App Router para gerenciar o sistema de rotas.
 
-## Learn More
+## 🔎 Design do Figma
 
-To learn more about Next.js, take a look at the following resources:
+O projeto possui um protótipo amplamente desenvolvido e atualizado conforme necessidade. Tal protótipo foi elaborado na Plataforma Figma e pode ser acessado [clicando aqui](https://www.figma.com/design/0fpIseqAP7hBrQa0LOPCUi/Prot%C3%B3tipo-SENAI?node-id=0-1&t=Z8737biCY2sqAGdd-1)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
