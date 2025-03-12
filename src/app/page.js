@@ -1,11 +1,14 @@
-import { Providers } from "./providers";
+"use client";
 
-export default function RootLayout({children}) {
-  return (
-    <html lang="pt">
-      <body>
-        <Providers>{children}</Providers>
-      </body>
-    </html>
-  );
+import { React } from "react";
+import { SessionProvider } from "next-auth/react";
+import { Login } from "./login/page";
+
+export default function Home() {
+    console.log("Home");
+    return (
+        <SessionProvider>
+            <Login />
+        </SessionProvider>
+    );
 }
