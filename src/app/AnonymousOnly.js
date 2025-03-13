@@ -7,7 +7,7 @@ import { RoutePaths } from "./RoutePaths";
 import { Loading } from "../components/Loading";
 
 
-export const AnonymousOnly = ({ children }) => {
+export default function AnonymousOnly ({ children }) {
   const { data: session, status } = useSession();
   const router = useRouter();
 
