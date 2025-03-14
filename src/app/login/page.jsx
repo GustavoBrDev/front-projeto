@@ -11,6 +11,7 @@ import { useSearchParams } from 'next/navigation';
 import { React } from 'react';
 import AcessLeft from '@/components/AcessLeft';
 import AcessCard from '@/components/AcessCard';
+import PasswordInput from '@/components/PasswordInput';
 
 export default function Login () {
   const searchParams = useSearchParams();
@@ -107,20 +108,12 @@ export default function Login () {
             />
           </div>
           <div className="mb-4">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Senha"
-              onChange={(e) => setPassword(e.target.value)}
-              className={`w-full md:text-[var(--white)] bg-transparent border-b-2 ${
-                password.trim() === '' && error
-                ? 'border-red-500'
-                : 'border-gray-300'
-              } focus:outline-none focus:border-blue-500 transition duration-300`}
-              autoComplete="off"
-            />
+            <PasswordInput 
+                  value={password} 
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Senha"
+                  error={password.trim() === '' && error}
+                />
           </div>
           { error && <ErrorAlert message={error} /> }
           <div className="mt-4 text-right mb-6">

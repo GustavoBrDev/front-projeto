@@ -21,7 +21,7 @@ export default function AcessLeft( { principalWidth, principalHeight, iconeWidth
                 <h2 className="text-6xl font-(family-name:<Poppins>) text-[var(--white)]">
                     conselho do estudante
                 </h2>
-                <p className="text-2xl font-(family-name:<Poppins>) text-[var(--white)]">
+                <p className="text-2xl font-(family-name:<Poppins>) text-[var(--white)] mt-4">
                     Pare de correr atrás de seus sonhos e faça-os virem até você
                 </p>
                 
