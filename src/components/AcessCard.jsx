@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * Componente de card de acesso. Utilizado na página de login e redefinição de senha.
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import Image from "next/image";
 import { React } from "react";
 

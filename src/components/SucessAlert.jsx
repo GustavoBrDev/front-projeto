@@ -1,3 +1,11 @@
+
+/**
+ * Componente de alerta de sucesso. 
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import React from "react";
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 

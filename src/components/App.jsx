@@ -1,3 +1,11 @@
+
+/**
+ * Componente principal do aplicativo. 
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import { React } from "react";
 import { Button } from "../components/Button";
 

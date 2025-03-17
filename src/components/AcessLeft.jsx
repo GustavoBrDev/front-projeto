@@ -1,5 +1,12 @@
 "use client"
 
+/**
+ * Componente para a parte esquerda da página de login. Exibe o logotipo e o texto de boas-vindas.
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import Image from "next/image";
 import { React } from "react";
 

@@ -1,5 +1,12 @@
 "use client"
 
+/**
+ * Página de erro 403 do aplicativo.
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { ArrowLeft, AlertCircle } from "lucide-react"

@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * Componente de regra de senha. 
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import React from "react";
 import PasswordChecklist from "react-password-checklist";
 import "../app/globals.css";

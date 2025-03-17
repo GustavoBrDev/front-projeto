@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * Componente de input de senha personalizado.
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import { useState } from 'react';
 
 export default function PasswordInput({
