@@ -8,7 +8,7 @@ export default function AcessLeft( { principalWidth, principalHeight, iconeWidth
         <>
             <div className="flex-1 md:flex-[3] bg-[var(--blueSecondary)] p-6">
                 <Image
-                    src="/icone.png"
+                    src="public\assets\icone.png"
                     alt="Logo"
                     width={iconeWidth}
                     height={iconeHeight}
@@ -27,7 +27,7 @@ export default function AcessLeft( { principalWidth, principalHeight, iconeWidth
                 
                 <div className="flex justify-center items-center mt-12">
                     <Image
-                    src="/principal.png"
+                    src="public\assets\principal.png"
                     alt="Principal"
                     width={principalWidth}
                     height={principalHeight}

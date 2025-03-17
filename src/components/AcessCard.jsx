@@ -9,7 +9,7 @@ export default function AcessCard( {forms, logoWidth, logoHeight, textTitle, tex
         <div className="flex-2 md:flex-[2] flex justify-center items-center">
           <div className="bg-transparent md:bg-[var(--blueSecondary)] p-8 rounded-3xl w-full md:w-2/3">
             <Image
-              src="/logo.png"
+              src="public\assets\logo.png"
               alt="Logo"
               width={logoWidth}
               height={logoHeight}

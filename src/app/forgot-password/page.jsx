@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * Página de recuperação de senha do aplicativo.
+ *
+ * @author Gustavo Stinghen
+ * @author joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import AnonymousOnly  from '../AnonymousOnly';
@@ -42,6 +49,12 @@ export default function ForgotPassword () {
     iconeHeight = 30;
   }
 
+  /**
+ * Função de envio de email para recuperação de senha.
+ *
+ * @param {object} e - Evento de submit do formulário.
+ * @return {void}
+ */
   async function handleSendEmail (e) {
 
     e.preventDefault();
@@ -101,6 +114,13 @@ export default function ForgotPassword () {
     return () => clearInterval(timer);
   }, [countdown]);
 
+
+/**
+ * Função de login do usuário.
+ *
+ * @param {object} e - Evento de click no botão de login.
+ * @return {void}
+ */
   async function handleLogin (e) {
     router.push(RoutePaths.LOGIN)
   };

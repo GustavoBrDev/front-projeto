@@ -1,3 +1,10 @@
+/**
+ * Definição de rotas do aplicativo.
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 export const RoutePaths = {
     HOME: "/home",
     LOGIN: "/login",

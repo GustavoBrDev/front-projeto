@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * Página de redefinição de senha do aplicativo.
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AnonymousOnly from '../AnonymousOnly';
@@ -44,6 +51,12 @@ export default function ResetPassword() {
     iconeHeight = 20;
   }
 
+  /**
+ * Função de redefinição de senha do usuário.
+ *
+ * @param {object} e - Evento de submit do formulário.
+ * @return {void}
+ */
   async function changePassword(e) {
     e.preventDefault();
 
@@ -78,6 +91,11 @@ export default function ResetPassword() {
     }
   }
 
+  /**
+ * Função de login do usuário.
+ *
+ * @return {void}
+ */
   function handleLogin() {
     router.push(RoutePaths.LOGIN);
   }

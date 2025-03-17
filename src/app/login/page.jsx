@@ -1,5 +1,13 @@
 "use client";
 
+/**
+ * Página de login do aplicativo.
+ *
+ * @author Gustavo Stinghen
+ * @author Joana Reinert Voigt(documentação)
+ * @since 13/03/2025
+ */
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AnonymousOnly  from '../AnonymousOnly';
@@ -44,6 +52,12 @@ export default function Login () {
     iconeHeight = 30;
   }
 
+  /**
+ * Função de login do usuário.
+ *
+ * @param {object} e - Evento de submit do formulário.
+ * @return {void}
+ */
   async function handleSubmit (e) {
     e.preventDefault();
 
