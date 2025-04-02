@@ -8,6 +8,8 @@
  */
 import { SessionProvider } from 'next-auth/react';
 import './globals.css';
+import { User } from 'lucide-react';
+import { UserProvider } from './UserProvider';
 
 /**
  * Layout raiz do aplicativo.
@@ -20,7 +22,11 @@ export default function RootLayout({ children }) {
     return (
         <html lang="pt-BR">
             <body>
-                <SessionProvider>{children}</SessionProvider>
+                <SessionProvider>
+                    <UserProvider>
+                        {children}
+                    </UserProvider>
+                </SessionProvider>
             </body>
         </html>
     );

@@ -10,6 +10,9 @@ export const RoutePaths = {
     LOGIN: "/login",
     MAIN: "/",
     FORGOT_PASSWORD: "/forgot-password",
-    RESET_PASSWORD: "/reset-password"
+    RESET_PASSWORD: "/reset-password",
+    FEEDBACKS: "/feedbacks",
+    CONFIGURATION: "/configuration",
+    CHAT: "/chat"
 };
   
