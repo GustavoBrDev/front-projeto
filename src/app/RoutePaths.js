@@ -13,6 +13,7 @@ export const RoutePaths = {
     RESET_PASSWORD: "/reset-password",
     FEEDBACKS: "/feedbacks",
     CONFIGURATION: "/configuration",
-    CHAT: "/chat"
+    CHAT: "/chat",
+    PRE_COUNCILS: "/pre-councils",
 };
   

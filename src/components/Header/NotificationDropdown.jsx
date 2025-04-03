@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { useUser } from "@/app/UserProvider";
+import { useUser } from "@/app/UserProvider"
 
 export function NotificationDropdown() {
   const { notifications, markNotificationAsRead } = useUser()
@@ -45,7 +45,7 @@ export function NotificationDropdown() {
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        className="relative p-2 text-white rounded-full hover:bg-blue-700 focus:outline-none"
+        className="relative p-2 text-white rounded-full hover:bg-blue-700 focus:outline-none transition-colors duration-200"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Notificações"
       >
@@ -64,14 +64,14 @@ export function NotificationDropdown() {
         </svg>
 
         {unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center rounded-full bg-red-500 text-white text-xs">
+          <span className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center rounded-full bg-red-500 text-white text-xs transform transition-transform duration-200 animate-pulse">
             {unreadCount}
           </span>
         )}
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg z-10">
+        <div className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-2rem)] bg-white rounded-md shadow-lg z-10 transform origin-top-right transition-all duration-200 ease-in-out">
           <div className="p-2 font-medium border-b">Notificações</div>
 
           {notifications.length === 0 ? (
@@ -81,7 +81,7 @@ export function NotificationDropdown() {
               {notifications.map((notification) => (
                 <div
                   key={notification.id}
-                  className={`p-3 cursor-pointer hover:bg-gray-100 ${!notification.read ? "bg-blue-50" : ""}`}
+                  className={`p-3 cursor-pointer hover:bg-gray-100 transition-colors duration-150 ${!notification.read ? "bg-blue-50" : ""}`}
                   onClick={() => handleNotificationClick(notification.id)}
                 >
                   <div className="flex flex-col gap-1 w-full">
@@ -98,7 +98,9 @@ export function NotificationDropdown() {
 
           {notifications.length > 0 && (
             <div className="p-2 text-center border-t">
-              <button className="text-blue-600 text-sm hover:underline w-full">Ver todas</button>
+              <button className="text-blue-600 text-sm hover:underline w-full transition-colors duration-150">
+                Ver todas
+              </button>
             </div>
           )}
         </div>

@@ -7,7 +7,7 @@ const languages = [
   {
     code: "pt-BR",
     name: "Português (Brasil)",
-    flag: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-X24bs2uW5kcWHemX5MfkjGFXiq4y6A.png", // Normalmente usaríamos uma imagem local, mas estou usando a URL da imagem fornecida para demonstração
+    flag: "/assets/flags/flag-brazil.png",
   },
 ]
 
@@ -33,12 +33,12 @@ export function LanguageSelector() {
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        className="p-1 rounded-md hover:bg-blue-700 focus:outline-none"
+        className="p-1 rounded-md hover:bg-blue-700 focus:outline-none transition-colors duration-200"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Selecionar idioma"
       >
         <Image
-          src={currentLanguage.flag || "/placeholder.svg"}
+          src={currentLanguage.flag || "/assets/flags/flag-brazil.png"}
           alt={currentLanguage.name}
           width={24}
           height={16}
@@ -47,7 +47,7 @@ export function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+        <div className="absolute right-0 mt-2 w-48 max-w-[calc(100vw-2rem)] bg-white rounded-md shadow-lg z-10 transform origin-top-right transition-all duration-200 ease-in-out">
           {languages.map((language) => (
             <button
               key={language.code}
@@ -55,10 +55,10 @@ export function LanguageSelector() {
                 setCurrentLanguage(language)
                 setIsOpen(false)
               }}
-              className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100"
+              className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-150"
             >
               <Image
-                src={language.flag || "/placeholder.svg"}
+                src={language.flag || "/assets/flags/flag-brazil.png"}
                 alt={language.name}
                 width={20}
                 height={14}

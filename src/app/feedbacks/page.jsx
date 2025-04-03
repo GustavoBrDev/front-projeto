@@ -3,12 +3,11 @@
 import { useState, useEffect } from "react"
 import { HeaderDemo } from "@/components/Header/HeaderDemo"
 import { Header } from "@/components/Header/Header"
-import { BlueBackground } from "@/components/blueBar/BlueBackground"
+import { BlueBackground } from "@/components/topBar/BlueBackground"
 import { WhiteContainer } from "@/components/White-Container"
 import { StudentFeedback } from "@/components/feedbacks/StudentFeedback"
 import { FeedbackList } from "@/components/feedbacks/FeedbackList"
-import { FeedbackTitle } from "@/components/blueBar/FeedbackTitle"
-import Head from "next/head"
+import { FeedbackTitle } from "@/components/topBar/FeedbackTitle"
 
 // Dados de exemplo para os feedbacks de estudantes
 const studentFeedbackData = [
@@ -171,7 +170,7 @@ export default function FeedbacksPage() {
         <Header />
 
         <BlueBackground>
-          <FeedbackTitle/>
+          <FeedbackTitle iconWidth={40} iconHeight={40} textSize={"3xl"}/>
         </BlueBackground>
 
         <div className="container mx-auto px-4 -mt-4 pb-8">
