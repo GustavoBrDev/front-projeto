@@ -8,10 +8,10 @@
  * @since 13/03/2025
  */
 import { React } from "react";
-import LoggedUserOnly from "../LoggedUserOnly";
+import MaintenancePage from "@/components/pagesResponses/Maintenance";
 
 export default function Home() {
     return (
-        <LoggedUserOnly><h1>Home</h1></LoggedUserOnly>
+        <MaintenancePage {...{ isPlanned: true,  estimatedTime: "1 Semana", customMessage: "Essa página está em desenvolvimento" }} />
     );
 }

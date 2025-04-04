@@ -9,7 +9,6 @@
  */
 import React from "react";
 import PasswordChecklist from "react-password-checklist";
-import "../app/globals.css";
 
 export default function PasswordRequirements({ password, confirmPassword }) {
   return (

@@ -11,11 +11,11 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import AnonymousOnly  from '../AnonymousOnly';
 import { RoutePaths } from '../RoutePaths';
-import { ErrorAlert } from '@/components/ErrorAlert';
+import { ErrorAlert } from '@/components/alerts/ErrorAlert';
 import { React } from 'react';
 import AcessLeft from '@/components/AcessLeft';
 import AcessCard from '@/components/AcessCard';
-import { SuccessAlert } from '@/components/SucessAlert';
+import { SuccessAlert } from '@/components/alerts/SucessAlert';
 
 export default function ForgotPassword () {
   const [email, setEmail] = useState('');

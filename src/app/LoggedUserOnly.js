@@ -24,8 +24,7 @@ export default function LoggedUserOnly({ children }) {
   useEffect(() => {
     if (status === "loading") return; // aguardando carregamento da sessão
     if (!session) {
-      // redireciona para a página de login se não houver sessão
-      router.push(RoutePaths.LOGIN);
+      router.push(`${RoutePaths.ERROR}/500`);
     }
   }, [session, status, router]);
 
