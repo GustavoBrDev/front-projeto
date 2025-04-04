@@ -11,8 +11,8 @@ export function HeaderDemo() {
     <>
       <HeaderWithRole role={selectedRole} />
 
-      <div className="container mx-auto p-4">
-        <div className="flex flex-wrap gap-2">
+      <div className="container">
+        <div className="flex flex-wrap">
           {["aluno", "representante", "professor", "tecnico", "supervisor", "administrador"].map((role) => (
             <button
               key={role}

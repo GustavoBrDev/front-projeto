@@ -13,13 +13,13 @@ import { useRouter } from 'next/navigation';
 import AnonymousOnly  from '../AnonymousOnly';
 import Image from 'next/image';
 import { RoutePaths } from '../RoutePaths';
-import { ErrorAlert } from '@/components/ErrorAlert';
+import { ErrorAlert } from '@/components/alerts/ErrorAlert';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { React } from 'react';
 import AcessLeft from '@/components/AcessLeft';
 import AcessCard from '@/components/AcessCard';
-import PasswordInput from '@/components/PasswordInput';
+import PasswordInput from '@/components/inputs/PasswordInput';
 
 export default function Login () {
   const searchParams = useSearchParams();

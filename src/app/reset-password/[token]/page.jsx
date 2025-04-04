@@ -11,12 +11,12 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AnonymousOnly from '../../AnonymousOnly';
 import { RoutePaths } from '../../RoutePaths';
-import { ErrorAlert } from '@/components/ErrorAlert';
+import { ErrorAlert } from '@/components/alerts/ErrorAlert';
 import AcessLeft from '@/components/AcessLeft';
 import AcessCard from '@/components/AcessCard';
-import { SuccessAlert } from '@/components/SucessAlert';
-import PasswordRequirements from '@/components/PasswordRequirements';
-import PasswordInput from '@/components/PasswordInput'; // Importando o componente separado
+import { SuccessAlert } from '@/components/alerts/SucessAlert';
+import PasswordRequirements from '@/components/inputs/PasswordRequirements';
+import PasswordInput from '@/components/inputs/PasswordInput'; // Importando o componente separado
 
 export default function ResetPassword( { params } ) {
   const [password, setPassword] = useState('');

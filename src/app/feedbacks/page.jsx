@@ -10,6 +10,7 @@ import { FeedbackList } from "@/components/feedbacks/FeedbackList"
 import { FeedbackTitle } from "@/components/topBar/FeedbackTitle"
 import { useUser } from "../UserProvider"
 import { Loading } from "@/components/Loading"
+import SearchBar from "@/components/inputs/SearchBar"
 
 // Dados de exemplo para os feedbacks de estudantes
 const studentFeedbackData = [
@@ -148,6 +149,8 @@ const disciplinesData = [
   { value: "Desenvolvimento Web", label: "Desenvolvimento Web" },
 ]
 
+const filterOptions = [ "Disciplina", "Strenghts", "Improvements", "Suggestions" ];
+
 export default function FeedbacksPage() {
   const { user } = useUser()
   const [isLoading, setIsLoading] = useState(true)
@@ -157,6 +160,13 @@ export default function FeedbacksPage() {
   const isStudentOrRepresentative = ["aluno", "representante"].includes(user?.role)
   const isProfessor = user?.role === "professor"
   const isSupervisorOrTechnical = ["supervisor", "tecnico"].includes(user?.role)
+
+  const filterOptions = [
+    { label: 'Disciplina', value: 'Disciplina' },
+    { label: 'Strenghts', value: 'Strenghts' },
+    { label: 'Improvements', value: 'Improvements' },
+    { label: 'Suggestions', value: 'Suggestions' }
+  ];
 
   // Filtros combinados
   const filteredTeacherFeedbacks = teacherFeedbackData
@@ -181,14 +191,14 @@ export default function FeedbacksPage() {
   }, [])
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 mx-auto">
       <Header />
       
       <BlueBackground>
         <FeedbackTitle iconWidth={40} iconHeight={40} textSize={"3xl"}/>
       </BlueBackground>
 
-      <div className="container mx-auto px-4 -mt-4 pb-8">
+      <div className="container flex justify-center w-screen mx-auto">
         <WhiteContainer>
           {isLoading ? (
             <Loading />
@@ -196,13 +206,11 @@ export default function FeedbacksPage() {
             <div className="space-y-8">
               {/* Barra de pesquisa */}
               {!isStudentOrRepresentative && (
-                <div className="mb-6">
-                  <input
-                    type="text"
-                    placeholder="Pesquisar em todos os feedbacks..."
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                <div className="flex justify-center">
+                    <SearchBar
+                    placeholder="Pesquisar por disciplina ou feedback"
+                    onChange={setSearchQuery}
+                    filterOptions={filterOptions}
                   />
                 </div>
               )}

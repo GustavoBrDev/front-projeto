@@ -120,9 +120,9 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-blue-600 text-white fixed px-6 top-0 left-0 right-0 z-30">
+      <header className="bg-blue-600 text-white fixed px-6 top-0 w-full z-30">
         <div className="container">
-          <div className="flex h-16 items-center justify-around">
+          <div className="flex h-16 items-center justify-between w-full">
             {/* Logo - oculto em mobile */}
             <div className="hidden md:flex items-center">
               <Link href={RoutePaths.HOME} className="text-white">

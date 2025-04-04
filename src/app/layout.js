@@ -21,6 +21,8 @@ import { UserProvider } from './UserProvider';
 export default function RootLayout({ children }) {
     return (
         <html lang="pt-BR">
+            <link rel="icon" href="/assets/LogoRedondo.svg" />
+            <title>Conselho do Estudante</title>
             <body>
                 <SessionProvider>
                     <UserProvider>
