@@ -8,6 +8,8 @@ import { WhiteContainer } from "@/components/White-Container"
 import { StudentFeedback } from "@/components/feedbacks/StudentFeedback"
 import { FeedbackList } from "@/components/feedbacks/FeedbackList"
 import { FeedbackTitle } from "@/components/topBar/FeedbackTitle"
+import { useUser } from "../UserProvider"
+import { Loading } from "@/components/Loading"
 
 // Dados de exemplo para os feedbacks de estudantes
 const studentFeedbackData = [
@@ -147,84 +149,108 @@ const disciplinesData = [
 ]
 
 export default function FeedbacksPage() {
+  const { user } = useUser()
   const [isLoading, setIsLoading] = useState(true)
   const [selectedDiscipline, setSelectedDiscipline] = useState(disciplinesData[0].value)
+  const [searchQuery, setSearchQuery] = useState("")
+  
+  const isStudentOrRepresentative = ["aluno", "representante"].includes(user?.role)
+  const isProfessor = user?.role === "professor"
+  const isSupervisorOrTechnical = ["supervisor", "tecnico"].includes(user?.role)
 
-  // Filtrar feedbacks por disciplina para professores
-  const filteredTeacherFeedbacks = selectedDiscipline
-    ? teacherFeedbackData.filter((f) => f.discipline === selectedDiscipline)
-    : teacherFeedbackData
+  // Filtros combinados
+  const filteredTeacherFeedbacks = teacherFeedbackData
+    .filter(f => selectedDiscipline ? f.discipline === selectedDiscipline : true)
+    .filter(f => 
+      f.discipline.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      f.strengths.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      f.improvements.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      f.suggestions.toLowerCase().includes(searchQuery.toLowerCase())
+    )
 
-  // Simular carregamento de dados
+  const filteredSupervisorFeedbacks = supervisorFeedbackData
+    .filter(f => 
+      f.strengths.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      f.improvements.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      f.suggestions.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
-
+    const timer = setTimeout(() => setIsLoading(false), 1000)
     return () => clearTimeout(timer)
   }, [])
 
   return (
-    //<LoggedUserOnly>
-      <div className="flex flex-col min-h-screen bg-gray-100">
-        <Header />
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      <Header />
+      
+      <BlueBackground>
+        <FeedbackTitle iconWidth={40} iconHeight={40} textSize={"3xl"}/>
+      </BlueBackground>
 
-        <BlueBackground>
-          <FeedbackTitle iconWidth={40} iconHeight={40} textSize={"3xl"}/>
-        </BlueBackground>
-
-        <div className="container mx-auto px-4 -mt-4 pb-8">
-          <WhiteContainer>
-            {isLoading ? (
-              <div className="flex justify-center items-center h-40">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-              </div>
-            ) : (
-              <div className="space-y-8">
-                {/* Seção de Estudante */}
-                <div>
-                  <div>
-                    {studentFeedbackData.map((feedback) => (
-                      <StudentFeedback
-                        key={feedback.id}
-                        date={feedback.date}
-                        category={feedback.category}
-                        studentName={feedback.studentName}
-                        studentId={feedback.studentId}
-                        content={feedback.content}
-                        classContent={feedback.classContent}
-                      />
-                    ))}
-                  </div>
+      <div className="container mx-auto px-4 -mt-4 pb-8">
+        <WhiteContainer>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <div className="space-y-8">
+              {/* Barra de pesquisa */}
+              {!isStudentOrRepresentative && (
+                <div className="mb-6">
+                  <input
+                    type="text"
+                    placeholder="Pesquisar em todos os feedbacks..."
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
                 </div>
+              )}
 
-                {/* Seção de Professor */}
+              {/* Seção de Estudante (apenas para alunos/representantes) */}
+              {isStudentOrRepresentative && (
+                <div>
+                  {studentFeedbackData.map((feedback) => (
+                    <StudentFeedback
+                      key={feedback.id}
+                      {...feedback}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* Seção de Professor (apenas para professores/supervisores) */}
+              {(isProfessor ) && (
                 <div>
                   <FeedbackList
-                    dates={filteredTeacherFeedbacks.map((f) => ({ id: f.id, date: f.date }))}
+                    title="Feedbacks de Professores"
+                    dates={filteredTeacherFeedbacks.map(f => ({ id: f.id, date: f.date }))}
                     discipline={selectedDiscipline}
                     disciplines={disciplinesData}
                     onDisciplineChange={setSelectedDiscipline}
-                    userType="professor"
-                    feedbacks={teacherFeedbackData}
-                  />
+                    feedbacks={filteredTeacherFeedbacks}
+                    userType={user?.role}
+                    >
+                  </FeedbackList>
                 </div>
+              )}
 
-                {/* Seção de Supervisor */}
+              {/* Seção de Supervisor (apenas para supervisores/técnicos) */}
+              {isSupervisorOrTechnical && (
                 <div>
                   <FeedbackList
-                    dates={supervisorFeedbackData.map((f) => ({ id: f.id, date: f.date }))}
-                    userType="supervisor"
-                    feedbacks={supervisorFeedbackData}
+                    title="Feedbacks de Supervisores"
+                    dates={filteredSupervisorFeedbacks.map(f => ({ id: f.id, date: f.date }))}
+                    feedbacks={filteredSupervisorFeedbacks}
                   />
                 </div>
-              </div>
-            )}
-          </WhiteContainer>
-        </div>
-        <HeaderDemo />
+              )}
+            </div>
+          )}
+        </WhiteContainer>
       </div>
-    //</LoggedUserOnly>
+      <HeaderDemo />
+    </div>
   )
 }
 

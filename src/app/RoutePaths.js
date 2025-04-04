@@ -15,5 +15,7 @@ export const RoutePaths = {
     CONFIGURATION: "/configuration",
     CHAT: "/chat",
     PRE_COUNCILS: "/pre-councils",
+    COUNCILS: "/councils",
+    ERROR: "/error",
 };
   

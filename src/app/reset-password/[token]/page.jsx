@@ -9,17 +9,16 @@
  */
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import AnonymousOnly from '../AnonymousOnly';
-import { RoutePaths } from '../RoutePaths';
+import AnonymousOnly from '../../AnonymousOnly';
+import { RoutePaths } from '../../RoutePaths';
 import { ErrorAlert } from '@/components/ErrorAlert';
 import AcessLeft from '@/components/AcessLeft';
 import AcessCard from '@/components/AcessCard';
 import { SuccessAlert } from '@/components/SucessAlert';
 import PasswordRequirements from '@/components/PasswordRequirements';
-import { useParams } from 'next/navigation';
 import PasswordInput from '@/components/PasswordInput'; // Importando o componente separado
 
-export default function ResetPassword() {
+export default function ResetPassword( { params } ) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
@@ -27,11 +26,10 @@ export default function ResetPassword() {
   const [showChecklist, setShowChecklist] = useState(false);
   const [showConfirmChecklist, setShowConfirmChecklist] = useState(false);
   const router = useRouter();
-  const { token } = useParams();
+  const { token } = params;
 
   if (!token) {
-    router.push(RoutePaths.LOGIN);
-    return null;
+    router.push(RoutePaths.ERROR + '/401');
   }
 
   // Ajusta dimensões para telas pequenas

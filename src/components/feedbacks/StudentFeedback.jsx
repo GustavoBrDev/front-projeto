@@ -69,7 +69,7 @@ export function StudentFeedback({
   }
 
   return (
-    <div className="mb-4 border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+    <div className="mb-4 border border-gray-200 rounded-3xl shadow-sm overflow-hidden">
       {/* Cabeçalho */}
       <div className="w-full bg-[var(--blueSecondary)] text-[var(--white)] p-4 flex items-center justify-between">
         <div className="flex items-center cursor-pointer" onClick={toggleExpand}>

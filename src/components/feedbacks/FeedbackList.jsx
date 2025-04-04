@@ -29,7 +29,7 @@ export function FeedbackList({ dates, discipline, disciplines = [], onDiscipline
   }
 
   return (
-    <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+    <div className="border border-gray-200 rounded-3xl shadow-sm overflow-hidden">
       <div className="w-full bg-[var(--blueSecondary)] text-[var(--white)] flex items-center justify-between p-4">
         <div className="flex-1">
           <span className="flex items-center">

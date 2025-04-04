@@ -153,12 +153,13 @@ export function MobileSidebar({ isOpen, onClose, navItems, hasPermission, user }
                 {navItems.map(
                   (item, index) =>
                     hasPermission(item.permission) && (
-                      <div
+                      <Link
+                        href={item.href}
                         key={index}
                         className="flex items-center px-3 py-2 text-white hover:bg-blue-700 rounded-md transition-colors duration-200"
                       >
                         {item.label}
-                      </div>
+                      </Link>
                     ),
                 )}
               </div>

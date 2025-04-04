@@ -10,7 +10,6 @@ import { FeedbackTitle } from "../topBar/FeedbackTitle"
 import { PreCouncilTitle } from "../topBar/PreCouncilTitle"
 import { ChatTitle } from "../topBar/ChatTitle"
 import { ConfigurationTitle } from "../topBar/ConfigurationTitle"
-import { navigate } from "next/navigation"
 import { RoutePaths } from "@/app/RoutePaths"
 import Image from "next/image"
 
@@ -18,24 +17,28 @@ export function Header() {
   const { user, hasPermission } = useUser()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openMenus, setOpenMenus] = useState({})
-  const menuRefs = useRef({})
+  const menuRefs = useRef({});
 
   // Definição dos itens de navegação
   const navItems = [
     {
-      label: <FeedbackTitle iconWidth={24} iconHeight={24} textSize="text-lg" onClick={ () => navigate(RoutePaths.FEEDBACKS) } />,
+      label: <FeedbackTitle iconWidth={24} iconHeight={24} textSize="text-lg" />,
+      href: RoutePaths.FEEDBACKS,
       permission: "view_feedbacks",
     },
     {
-      label: <PreCouncilTitle iconWidth={24} iconHeight={24} textSize="text-lg" onClick={ () => navigate(RoutePaths.PRE_COUNCILS) }/>,
+      label: <PreCouncilTitle iconWidth={24} iconHeight={24} textSize="text-lg"/>,
+      href: RoutePaths.PRE_COUNCILS,
       permission: "view_pre_conselhos",
     },
     {
-      label: <ChatTitle iconWidth={24} iconHeight={24} textSize="text-lg" onClick={ () => navigate(RoutePaths.CHAT) } />,
+      label: <ChatTitle iconWidth={24} iconHeight={24} textSize="text-lg" />,
+      href: RoutePaths.CHAT,
       permission: "view_chat",
     },
     {
-      label: <ConfigurationTitle iconWidth={24} iconHeight={24} textSize="text-lg" onClick={ () => navigate(RoutePaths.CONFIGURATION) } />,
+      label: <ConfigurationTitle iconWidth={24} iconHeight={24} textSize="text-lg"/>,
+      href: RoutePaths.CONFIGURATION,
       permission: "view_feedbacks",
     },
   ]
@@ -119,7 +122,7 @@ export function Header() {
     <>
       <header className="bg-blue-600 text-white fixed px-6 top-0 left-0 right-0 z-30">
         <div className="container">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-16 items-center justify-around">
             {/* Logo - oculto em mobile */}
             <div className="hidden md:flex items-center">
               <Link href={RoutePaths.HOME} className="text-white">
@@ -158,12 +161,13 @@ export function Header() {
                 : navItems.map(
                     (item, index) =>
                       hasPermission(item.permission) && (
-                        <div
+                        <Link
                           key={index}
+                          href={item.href}
                           className="flex items-center text-white hover:text-blue-100 transition-colors duration-200"
                         >
                           {item.label}
-                        </div>
+                        </Link>
                       ),
                   )}
             </nav>
