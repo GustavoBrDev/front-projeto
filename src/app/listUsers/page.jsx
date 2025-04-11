@@ -50,30 +50,9 @@ export default function ListUsers() {
             <Loading />
           ) : (
             <div className="space-y-8">
-              {/* Área de pesquisa + botão */}
-              <div className="relative flex justify-center items-center">
-                <div className="w-full max-w-md">
-                  <div className="flex items-center bg-white rounded-full px-4 py-2 shadow-md w-full">
-                    <Search className="text-gray-400 mr-2" />
-                    <input
-                      type="text"
-                      placeholder="Pesquise aqui..."
-                      className="w-full focus:outline-none"
-                      value={searchQuery}
-                      onChange={e => setSearchQuery(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                {/* Botão apenas para pedagógico */}
-                {user?.role === "pedagogico" && (
-                  <button
-                    className="absolute right-0 bg-[#002c6e] text-white font-semibold py-2 px-5 rounded-xl shadow hover:bg-[#001d4d] transition"
-                    onClick={() => window.location.href = "/cadastrar-usuario"}
-                  >
-                    Cadastrar usuário
-                  </button>
-                )}
+              {/* Pesquisa */}
+              <div className="flex justify-center">
+                <SearchBar/>
               </div>
 
               {/* Lista de usuários */}
@@ -85,10 +64,11 @@ export default function ListUsers() {
                   >
                     <Image
                       src={user?.avatar || "/assets/profile.png"}
-                      alt={user.name}
+                      alt={user.name} 
                       width={20}
                       height={20}
                       className="w-12 h-12 rounded-full object-cover border-2 border-white"
+                      
                     />
                     <div>
                       <h2 className="font-semibold">{user.name}</h2>
