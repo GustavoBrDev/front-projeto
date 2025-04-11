@@ -8,9 +8,6 @@ import { HeaderDemo } from "@/components/Header/HeaderDemo"
 import { useState, useEffect } from "react"
 import {
   Search,
-  MessageSquare,
-  FileText,
-  Settings,
   Users,
   ChevronLeft,
   ChevronRight,
@@ -270,7 +267,7 @@ export default function FeedbackSystem() {
           <aside
             className={`
               bg-blue-800 text-white flex flex-col flex-shrink-0 
-              transition-all duration-300 ease-in-out z-40
+              transition-all duration-300 ease-in-out z-9
               ${isMobile ? "fixed right-0 top-0 bottom-0 pt-14" : "relative left-0"}
               ${
                 sidebarOpen
