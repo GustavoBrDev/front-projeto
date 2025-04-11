@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useEffect } from "react"
 import { Header } from "@/components/Header/Header"
 import { BlueBackground } from "@/components/topBar/BlueBackground"
