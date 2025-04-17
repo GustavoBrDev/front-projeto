@@ -4,7 +4,6 @@ import React from "react"
 import { useUser } from "../UserProvider"
 import { Header } from "@/components/Header/Header"
 import { Loading } from "@/components/Loading"
-import { HeaderDemo } from "@/components/Header/HeaderDemo"
 import { useState, useEffect } from "react"
 import {
   Search,
@@ -15,6 +14,8 @@ import {
   ChevronUp,
   Clipboard,
 } from "lucide-react"
+
+import Image from "next/image"
 
 // SearchBar component
 const SearchBar = ({ placeholder, onChange }) => {
@@ -316,9 +317,11 @@ export default function FeedbackSystem() {
                     }}
                   >
                     <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
-                      <img
-                        src={student.avatar || "/placeholder.svg"}
+                      <Image
+                        src={student.avatar ? student.avatar : `/assets/avatar-padrao.jpg`}
                         alt={student.name}
+                        width={10}
+                        height={10}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -354,9 +357,11 @@ export default function FeedbackSystem() {
                       onClick={() => toggleTeacherExpansion(teacher.name)}
                     >
                       <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
-                        <img
-                          src={teacher.avatar || "/placeholder.svg"}
+                        <Image
+                          src={teacher.avatar ? teacher.avatar : `/assets/avatar-padrao.jpg`}
                           alt={teacher.name}
+                          width={10}
+                          height={10}
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -454,13 +459,13 @@ export default function FeedbackSystem() {
                 {/* Student Info */}
                 <div className="bg-gray-200 p-3 md:p-4 flex items-center">
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden mr-2 md:mr-3 flex-shrink-0">
-                    <img
+                    <Image
                       src={
                         students.find((student) => student.name === selectedStudent)?.avatar ||
-                        "/placeholder.svg?height=40&width=40" ||
-                        "/placeholder.svg" ||
-                        "/placeholder.svg"
+                        "/assets/avatar-padrao.jpg"
                       }
+                      width={10}
+                      height={10}
                       alt={selectedStudent}
                       className="w-full h-full object-cover"
                     />
@@ -542,7 +547,6 @@ export default function FeedbackSystem() {
             </button>
           </main>
         </div>
-        <HeaderDemo />
     </div>
   )
 }

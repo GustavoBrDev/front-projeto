@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { NotificationDropdown } from "./NotificationDropdown";
-import { LanguageSelector } from "./LanguageSelector";
 import { useUser, UserAvatar } from "@/app/UserProvider";
 import { MobileSidebar } from "./MobileSideBar";
 import { FeedbackTitle } from "../topBar/FeedbackTitle";
@@ -206,9 +205,8 @@ export function Header() {
 
             {/* Right side items */}
             <div className="flex items-center space-x-2">
-              <LanguageSelector />
               <NotificationDropdown />
-              <UserAvatar user={user} />
+              <UserAvatar user={user} showDropdown={true} />
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect, useRef } from "react"
 
 const UserContext = createContext(undefined)
 
@@ -16,12 +16,12 @@ const rolePermissions = {
 
 // Dados de exemplo para demonstração
 const mockUsers = {
-  aluno: { id: "1", name: "João Silva", email: "joao@escola.edu", role: "aluno" },
-  representante: { id: "2", name: "Maria Souza", email: "maria@escola.edu", role: "representante" },
-  professor: { id: "3", name: "Carlos Ferreira", email: "carlos@escola.edu", role: "professor" },
-  tecnico: { id: "4", name: "Ana Oliveira", email: "ana@escola.edu", role: "tecnico" },
-  supervisor: { id: "5", name: "Pedro Santos", email: "pedro@escola.edu", role: "supervisor" },
-  administrador: { id: "6", name: "Lucia Mendes", email: "lucia@escola.edu", role: "administrador" },
+  aluno: { id: "1", name: "Pedro Augusto Wilhelm", email: "pedro@escola.edu", role: "aluno"},
+  representante: { id: "2", name: "Leticia Moretti", email: "leticia@escola.edu", role: "representante"},
+  professor: { id: "3", name: "Romário Hornburg", email: "romario@escola.edu", role: "professor" },
+  tecnico: { id: "4", name: "Jusceline", email: "jusceline@escola.edu", role: "tecnico"},
+  supervisor: { id: "5", name: "Andrei", email: "andrei@escola.edu", role: "supervisor" },
+  administrador: { id: "6", name: "Administrador", email: "admin@escola.edu", role: "administrador"},
 }
 
 const mockNotifications = [
@@ -43,7 +43,7 @@ const mockNotifications = [
 ]
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(mockUsers['aluno']) // Define o usuário "aluno" como padrão
   const [notifications, setNotifications] = useState(mockNotifications)
 
   const markNotificationAsRead = (id) => {
@@ -70,6 +70,7 @@ export function UserProvider({ children }) {
         notifications,
         markNotificationAsRead,
         hasPermission,
+        mockUsers,
       }}
     >
       {children}
@@ -86,30 +87,96 @@ export function useUser() {
 }
 
 // Componente de avatar reutilizável
-export function UserAvatar({ user }) {
-  if (!user) return null
+export function UserAvatar({ user, onClick, showDropdown = false }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const { setUser, mockUsers } = useUser()
+  const dropdownRef = useRef(null)
 
-  if (user.avatarUrl) {
-    return (
-      <div className="h-8 w-8 rounded-full overflow-hidden">
-        <img src={user.avatarUrl || "/placeholder.svg"} alt={user.name} className="h-full w-full object-cover" />
-      </div>
-    )
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    } else if (showDropdown) {
+      setIsOpen(!isOpen)
+    }
   }
 
+  // Fechar dropdown quando clicar fora
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isOpen])
+
+  const handleRoleChange = (role) => {
+    setUser(mockUsers[role])
+    setIsOpen(false)
+  }
+
+  if (!user) return null
+
   return (
-    <div className="h-8 w-8 rounded-full bg-blue-800 flex items-center justify-center text-white text-sm font-medium">
-      {user.name.substring(0, 2).toUpperCase()}
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={handleClick}
+        className="focus:outline-none"
+        aria-label={showDropdown ? "Mudar usuário" : "Avatar do usuário"}
+      >
+        {user.avatarUrl ? (
+          <div className="h-8 w-8 rounded-full overflow-hidden">
+            <img src={user.avatarUrl || "/placeholder.svg"} alt={user.name} className="h-full w-full object-cover" />
+          </div>
+        ) : (
+          <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-medium hover:bg-blue-700 transition-colors duration-200">
+            {user.name.substring(0, 2).toUpperCase()}
+          </div>
+        )}
+      </button>
+
+      {showDropdown && isOpen && (
+        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 transform origin-top-right transition-all duration-200 ease-in-out">
+          <div className="py-1">
+            <div className="px-4 py-2 text-sm text-gray-500 border-b">Mudar para:</div>
+            {Object.keys(mockUsers).map((role) => (
+              <button
+                key={role}
+                onClick={() => handleRoleChange(role)}
+                className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-150 text-[var(--black)] ${
+                  user.role === role ? "bg-blue-50 font-medium" : ""
+                }`}
+              >
+                <div className="flex items-center">
+                  <div className="h-6 w-6 rounded-full bg-red-500 flex items-center justify-center text-white text-xs font-medium mr-2">
+                    {mockUsers[role].name.substring(0, 2).toUpperCase()}
+                  </div>
+                  <div>
+                    <div>{mockUsers[role].name}</div>
+                    <div className="text-xs text-gray-500 capitalize">{role}</div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
 // Hook para obter usuário de exemplo
 export function useMockUser(role) {
-  const { setUser } = useUser()
+  const { setUser, mockUsers } = useUser()
 
   useEffect(() => {
-    setUser(mockUsers[role])
-  }, [role, setUser])
+    setUser(role ? mockUsers[role] : mockUsers['aluno'])
+  }, [role, setUser, mockUsers])
 }
-

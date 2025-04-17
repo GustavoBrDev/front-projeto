@@ -16,7 +16,6 @@ import { useRouter } from "next/navigation";
 import { Header } from "@/components/Header/Header";
 import { BlueBackground } from "@/components/topBar/BlueBackground";
 import { useUser } from "../UserProvider";
-import { HeaderDemo } from "@/components/Header/HeaderDemo";
 
 import Image from "next/image";
 import {

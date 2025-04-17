@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Header } from "@/components/Header/Header"
 import { BlueBackground } from "@/components/topBar/BlueBackground"
-import { FeedbackTitle } from "@/components/topBar/FeedbackTitle"
 import { WhiteContainer } from "@/components/White-Container"
 import { PreCouncilTitle } from "@/components/topBar/PreCouncilTitle"
 

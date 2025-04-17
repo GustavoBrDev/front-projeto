@@ -67,7 +67,7 @@ export function NotificationDropdown() {
 
       {isOpen && (
         <div className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-2rem)] bg-white rounded-md shadow-lg z-10 transform origin-top-right transition-all duration-200 ease-in-out">
-          <div className="p-2 font-medium border-b">Notificações</div>
+          <div className="p-2 font-medium border-b text-[var(--bluePrimary)]">Notificações</div>
 
           {notifications.length === 0 ? (
             <div className="p-4 text-center text-gray-500">Nenhuma notificação</div>
@@ -81,8 +81,8 @@ export function NotificationDropdown() {
                 >
                   <div className="flex flex-col gap-1 w-full">
                     <div className="flex justify-between items-center">
-                      <span className="font-medium">{notification.title}</span>
-                      <span className="text-xs text-gray-500">{formatDate(notification.date)}</span>
+                      <span className="font-medium text-[var(--black)]">{notification.title}</span>
+                      <span className="text-xs text-[var(--gray)]">{formatDate(notification.date)}</span>
                     </div>
                     <p className="text-sm text-gray-600">{notification.message}</p>
                   </div>
@@ -93,7 +93,7 @@ export function NotificationDropdown() {
 
           {notifications.length > 0 && (
             <div className="p-2 text-center border-t">
-              <button className="text-blue-600 text-sm hover:underline w-full transition-colors duration-150">
+              <button className="text-blue-600 text-sm hover:underline w-full transition-colors duration-150 cursor-pointer">
                 Ver todas
               </button>
             </div>

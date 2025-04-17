@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image";
 import { useState, useEffect } from "react"
-import { HeaderDemo } from "@/components/Header/HeaderDemo"
 import { Header } from "@/components/Header/Header"
 import { BlueBackground } from "@/components/topBar/BlueBackground"
 import { WhiteContainer } from "@/components/White-Container"
@@ -84,8 +83,6 @@ export default function ListUsers() {
           )}
         </WhiteContainer>
       </div>
-
-      <HeaderDemo />
     </div>
   )
 }

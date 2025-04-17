@@ -81,32 +81,6 @@ export default function ConfiguracoesPanel() {
               </div>
             </div>
           </div>
-
-          <div>
-            <h3 className="text-lg md:text-xl lg:text-2xl font-medium mb-1">Idioma</h3>
-            <p className="text-base md:text-lg lg:text-xl mb-2">Selecione o idioma de sua preferência.</p>
-            <div className="relative inline-block w-32">
-              <select
-                value={idioma}
-                onChange={(e) => setIdioma(e.target.value)}
-                className="appearance-none bg-white text-[var(--bluePrimary)] rounded-md py-1 pl-3 pr-8 w-32 cursor-pointer"
-              >
-                <option value="Português" style={{ color: 'var(--bluePrimary)' }}>Português</option>
-                <option value="English" style={{ color: 'var(--bluePrimary)' }}>English</option>
-                <option value="Español" style={{ color: 'var(--bluePrimary)' }}>Español</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
-                <svg
-                  className="fill-current h-4 w-4 text-navy-800"
-                  style={{ color: 'var(--bluePrimary)' }}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                </svg>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Coluna da direita */}

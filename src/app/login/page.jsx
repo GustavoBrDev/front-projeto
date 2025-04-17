@@ -85,13 +85,15 @@ export default function Login () {
       return;
     }
 
-    signIn('credentials', email, password).then(() => {
+    /*signIn('credentials', email, password).then(() => {
       setError('');
       router.push(RoutePaths.HOME);
     }).catch((error) => {
       setError(error.message);
       console.log(error);
-    });
+    });*/
+
+    router.push(RoutePaths.HOME);
     
   };
 
