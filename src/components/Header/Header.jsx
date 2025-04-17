@@ -104,7 +104,7 @@ export function Header() {
         </button>
 
         {openMenus[`menu-${index}`] && (
-          <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 transform origin-top-left transition-all duration-200 ease-in-out">
+          <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform origin-top-left transition-all duration-200 ease-in-out">
             <div className="py-1">
               <a
                 href="#"
@@ -146,7 +146,7 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-blue-600 text-white fixed px-6 top-0 w-full z-30">
+      <header className="bg-blue-600 text-white fixed px-6 top-0 w-full z-50">
         <div className="w-full px-6">
           <div className="flex h-16 items-center justify-between w-full">
             {/* Logo - oculto em mobile */}

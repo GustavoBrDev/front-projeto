@@ -114,7 +114,7 @@ export default function PreConselho() {
                   <h3 className="text-lg font-bold">Professor</h3>
                   <div className="relative ml-4 flex-grow">
                     {showProfessorSelect ? (
-                      <div className="border border-gray-300 rounded-md w-1/3">
+                      <div className="border border-gray-300 rounded-md md:w-1/3 w-full">
                         <select
                           className="w-full p-2 outline-none bg-white text-sm"
                           value={professor}

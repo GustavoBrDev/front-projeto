@@ -13,14 +13,9 @@ export default function ConfiguracoesPanel() {
   const [audioDescricao, setAudioDescricao] = useState(false)
 
   const handleLogout = () => {
-    localStorage.removeItem("token")
+    // localStorage.removeItem("token")
   }
 
-  localStorage.setItem("tema", tema)
-  localStorage.setItem("tamanhoFonte", tamanhoFonte)
-  localStorage.setItem("idioma", idioma)
-  localStorage.setItem("linguaSinais", linguaSinais)
-  localStorage.setItem("audioDescricao", audioDescricao)
 
   return (
     <div className="bg-[var(--bluePrimary)] rounded-lg p-2 m-8 shadow-md">
