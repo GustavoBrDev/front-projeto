@@ -178,7 +178,7 @@ export default function ForgotPassword () {
           <div className="mt-4 text-center mb-6">
             <a
               onClick={handleLogin}
-              className="underline md:text-[var(--white)] hover:text-[var(--bluePrimary)]"
+              className="underline md:text-[var(--white)] hover:text-[var(--blueTertiary)] cursor-pointer"
             >
               Voltar para o Login
             </a>

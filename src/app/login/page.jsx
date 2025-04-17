@@ -11,7 +11,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AnonymousOnly  from '../AnonymousOnly';
-import Image from 'next/image';
 import { RoutePaths } from '../RoutePaths';
 import { ErrorAlert } from '@/components/alerts/ErrorAlert';
 import { signIn } from 'next-auth/react';
