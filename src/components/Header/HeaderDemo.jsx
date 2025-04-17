@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import {  Header } from "./Header"
+import { useState } from "react";
+import { Header } from "./Header";
 import { useMockUser } from "@/app/UserProvider";
 
 export function HeaderDemo() {
-  const [selectedRole, setSelectedRole] = useState("aluno")
+  const [selectedRole, setSelectedRole] = useState("aluno");
 
   return (
     <>
@@ -13,7 +13,14 @@ export function HeaderDemo() {
 
       <div className="container">
         <div className="flex flex-wrap">
-          {["aluno", "representante", "professor", "tecnico", "supervisor", "administrador"].map((role) => (
+          {[
+            "aluno",
+            "representante",
+            "professor",
+            "tecnico",
+            "supervisor",
+            "administrador",
+          ].map((role) => (
             <button
               key={role}
               className={`px-4 py-2 rounded-md capitalize ${
@@ -28,12 +35,10 @@ export function HeaderDemo() {
           ))}
         </div>
       </div>
-      </>
-  )
+    </>
+  );
 }
 
 function HeaderWithRole({ role }) {
-  useMockUser(role)
+  useMockUser(role);
 }
-
-

@@ -1,33 +1,37 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import Link from "next/link"
-import { NotificationDropdown } from "./NotificationDropdown"
-import { LanguageSelector } from "./LanguageSelector"
-import { useUser, UserAvatar } from "@/app/UserProvider"
-import { MobileSidebar } from "./MobileSideBar"
-import { FeedbackTitle } from "../topBar/FeedbackTitle"
-import { PreCouncilTitle } from "../topBar/PreCouncilTitle"
-import { ChatTitle } from "../topBar/ChatTitle"
-import { ConfigurationTitle } from "../topBar/ConfigurationTitle"
-import { RoutePaths } from "@/app/RoutePaths"
-import Image from "next/image"
+import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { NotificationDropdown } from "./NotificationDropdown";
+import { LanguageSelector } from "./LanguageSelector";
+import { useUser, UserAvatar } from "@/app/UserProvider";
+import { MobileSidebar } from "./MobileSideBar";
+import { FeedbackTitle } from "../topBar/FeedbackTitle";
+import { PreCouncilTitle } from "../topBar/PreCouncilTitle";
+import { ChatTitle } from "../topBar/ChatTitle";
+import { ConfigurationTitle } from "../topBar/ConfigurationTitle";
+import { RoutePaths } from "@/app/RoutePaths";
+import Image from "next/image";
 
 export function Header() {
-  const { user, hasPermission } = useUser()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [openMenus, setOpenMenus] = useState({})
+  const { user, hasPermission } = useUser();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMenus, setOpenMenus] = useState({});
   const menuRefs = useRef({});
 
   // Definição dos itens de navegação
   const navItems = [
     {
-      label: <FeedbackTitle iconWidth={24} iconHeight={24} textSize="text-lg" />,
+      label: (
+        <FeedbackTitle iconWidth={24} iconHeight={24} textSize="text-lg" />
+      ),
       href: RoutePaths.FEEDBACKS,
       permission: "view_feedbacks",
     },
     {
-      label: <PreCouncilTitle iconWidth={24} iconHeight={24} textSize="text-lg"/>,
+      label: (
+        <PreCouncilTitle iconWidth={24} iconHeight={24} textSize="text-lg" />
+      ),
       href: RoutePaths.PRE_COUNCILS,
       permission: "view_pre_conselhos",
     },
@@ -37,39 +41,53 @@ export function Header() {
       permission: "view_chat",
     },
     {
-      label: <ConfigurationTitle iconWidth={24} iconHeight={24} textSize="text-lg"/>,
+      label: (
+        <ConfigurationTitle iconWidth={24} iconHeight={24} textSize="text-lg" />
+      ),
       href: RoutePaths.CONFIGURATION,
       permission: "view_feedbacks",
     },
-  ]
+  ];
 
   // Fechar dropdown quando clicar fora
   useEffect(() => {
     function handleClickOutside(event) {
       Object.keys(menuRefs.current).forEach((key) => {
-        if (menuRefs.current[key] && !menuRefs.current[key].contains(event.target)) {
-          setOpenMenus((prev) => ({ ...prev, [key]: false }))
+        if (
+          menuRefs.current[key] &&
+          !menuRefs.current[key].contains(event.target)
+        ) {
+          setOpenMenus((prev) => ({ ...prev, [key]: false }));
         }
-      })
+      });
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [menuRefs])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRefs]);
 
   // Função para renderizar os menus para usuários com permissão "view_all_menus"
   const renderAdvancedMenus = () => {
-    if (!hasPermission("view_all_menus")) return null
+    if (!hasPermission("view_all_menus")) return null;
 
-    const menuCategories = ["Menu 1", "Menu 2", "Menu 3", "Menu 4"]
+    const menuCategories = ["Menu 1", "Menu 2", "Menu 3", "Menu 4"];
 
     return menuCategories.map((category, index) => (
-      <div key={index} className="relative" ref={(el) => (menuRefs.current[`menu-${index}`] = el)}>
+      <div
+        key={index}
+        className="relative"
+        ref={(el) => (menuRefs.current[`menu-${index}`] = el)}
+      >
         <button
           className="flex items-center gap-1 px-3 py-2 text-white hover:bg-blue-700 rounded-md transition-colors duration-200"
-          onClick={() => setOpenMenus((prev) => ({ ...prev, [`menu-${index}`]: !prev[`menu-${index}`] }))}
+          onClick={() =>
+            setOpenMenus((prev) => ({
+              ...prev,
+              [`menu-${index}`]: !prev[`menu-${index}`],
+            }))
+          }
         >
           {category}
           <svg
@@ -89,44 +107,58 @@ export function Header() {
         {openMenus[`menu-${index}`] && (
           <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 transform origin-top-left transition-all duration-200 ease-in-out">
             <div className="py-1">
-              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-150">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-150"
+              >
                 Opção 1
               </a>
-              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-150">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-150"
+              >
                 Opção 2
               </a>
-              <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-150">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-150"
+              >
                 Opção 3
               </a>
             </div>
           </div>
         )}
       </div>
-    ))
-  }
+    ));
+  };
 
   // Prevenir scroll quando o menu mobile está aberto
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = "auto"
-    }
-  }, [mobileMenuOpen])
+      document.body.style.overflow = "auto";
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <>
       <header className="bg-blue-600 text-white fixed px-6 top-0 w-full z-30">
-        <div className="container">
+        <div className="w-full px-6">
           <div className="flex h-16 items-center justify-between w-full">
             {/* Logo - oculto em mobile */}
             <div className="hidden md:flex items-center">
               <Link href={RoutePaths.HOME} className="text-white">
-                <Image src="/assets/icone.png" alt="Logo" width={30} height={30} />
+                <Image
+                  src="/assets/icone.png"
+                  alt="Logo"
+                  width={30}
+                  height={30}
+                />
               </Link>
             </div>
 
@@ -168,7 +200,7 @@ export function Header() {
                         >
                           {item.label}
                         </Link>
-                      ),
+                      )
                   )}
             </nav>
 
@@ -194,6 +226,5 @@ export function Header() {
       {/* Espaço para compensar o header fixo */}
       <div className="h-16"></div>
     </>
-  )
+  );
 }
-
