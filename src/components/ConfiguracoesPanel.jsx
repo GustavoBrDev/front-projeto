@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { Switch } from "@/components/inputs/Switch"
+import Link from "next/link"
+import { RoutePaths } from "@/app/RoutePaths"
 
 export default function ConfiguracoesPanel() {
   const [tema, setTema] = useState("Claro")
@@ -9,6 +11,16 @@ export default function ConfiguracoesPanel() {
   const [idioma, setIdioma] = useState("Português")
   const [linguaSinais, setLinguaSinais] = useState(false)
   const [audioDescricao, setAudioDescricao] = useState(false)
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+  }
+
+  localStorage.setItem("tema", tema)
+  localStorage.setItem("tamanhoFonte", tamanhoFonte)
+  localStorage.setItem("idioma", idioma)
+  localStorage.setItem("linguaSinais", linguaSinais)
+  localStorage.setItem("audioDescricao", audioDescricao)
 
   return (
     <div className="bg-[var(--bluePrimary)] rounded-lg p-2 m-8 shadow-md">
@@ -116,6 +128,7 @@ export default function ConfiguracoesPanel() {
           <div>
             <h3 className="text-lg md:text-xl lg:text-2xl font-medium mb-1">Sair da conta</h3>
             <p className="text-base md:text-lg lg:text-xl mb-2">Realize o logout</p>
+            <Link onClick={handleLogout} href={RoutePaths.LOGIN}>
             <button className="bg-white text-navy-800 rounded-md py-1 px-4 flex items-center gap-1 hover:bg-gray-100 transition-colors">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -136,6 +149,7 @@ export default function ConfiguracoesPanel() {
               </svg>
               <span style={{ color: 'var(--bluePrimary)' }}>Logout</span>
             </button>
+            </Link>
           </div>
         </div>
       </div>
