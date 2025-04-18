@@ -146,7 +146,7 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-blue-600 text-white fixed px-6 top-0 w-full z-50">
+      <header className="bg-[var(--blueSecondary)] text-white fixed px-6 top-0 w-full z-50">
         <div className="w-full px-6">
           <div className="flex h-16 items-center justify-between w-full">
             {/* Logo - oculto em mobile */}

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Switch } from "@/components/inputs/Switch"
 import Link from "next/link"
 import { RoutePaths } from "@/app/RoutePaths"
@@ -8,15 +8,57 @@ import { RoutePaths } from "@/app/RoutePaths"
 export default function ConfiguracoesPanel() {
   const [tema, setTema] = useState("Claro")
   const [tamanhoFonte, setTamanhoFonte] = useState("Pequeno")
-  const [idioma, setIdioma] = useState("Português")
+  const [ corSistema, setCorSistema] = useState("Azul");
   const [linguaSinais, setLinguaSinais] = useState(false)
   const [audioDescricao, setAudioDescricao] = useState(false)
+
+  // Carregar a cor do sistema do localStorage ao montar o componente
+  useEffect(() => {
+    const savedCor = localStorage.getItem("corSistema");
+    if (savedCor) {
+      setCorSistema(savedCor);
+    }
+  }, []);
+
+  // Atualizar o localStorage sempre que a cor do sistema mudar
+  useEffect(() => {
+    localStorage.setItem("corSistema", corSistema);
+    const root = document.documentElement;
+
+    switch (corSistema) {
+      case "blue":
+        root.style.setProperty('--bluePrimary', '#0047AB');
+        root.style.setProperty('--blueSecondary', '#007BFF');
+        root.style.setProperty('--blueTertiary', '#A3C1DA');
+        break;
+      case "green":
+        root.style.setProperty('--bluePrimary', '#4CAF50');
+        root.style.setProperty('--blueSecondary', '#16b51c'); 
+        root.style.setProperty('--blueTertiary', '#008000');
+        break;
+      case "red":
+        root.style.setProperty('--bluePrimary', '#db4d2e');
+        root.style.setProperty('--blueSecondary', '#B22222'); 
+        root.style.setProperty('--blueTertiary', '#f25757'); 
+        break;
+      case "purple":
+        root.style.setProperty('--bluePrimary', '#d277f7');
+        root.style.setProperty('--blueSecondary', '#9B59B6');
+        root.style.setProperty('--blueTertiary', '#904fab');
+        break;
+      case "orange":
+        root.style.setProperty('--bluePrimary', '#f27607');
+        root.style.setProperty('--blueSecondary', '#e88b2e');
+        root.style.setProperty('--blueTertiary', '#faa32a');
+        break;
+      default:
+        break;
+    }
+  }, [corSistema]);
 
   const handleLogout = () => {
     // localStorage.removeItem("token")
   }
-
-
   return (
     <div className="bg-[var(--bluePrimary)] rounded-lg p-2 m-8 shadow-md">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -76,6 +118,48 @@ export default function ConfiguracoesPanel() {
               </div>
             </div>
           </div>
+
+          <div className="mb-6">
+        <h3 className="text-lg md:text-xl lg:text-2xl font-medium mb-1">Cor do Sistema</h3>
+        <p className="text-base md:text-lg lg:text-xl mb-2">Selecione a cor que mais combina com sua personalidade</p>
+        <div className="flex space-x-4 mt-3">
+          {[
+            { id: "blue", color: "#0047AB", label: "Azul" },
+            { id: "green", color: "#008000", label: "Verde" },
+            { id: "red", color: "#B22222", label: "Vermelho" },
+            { id: "purple", color: "#800080", label: "Roxo" },
+            { id: "orange", color: "#FF8C00", label: "Laranja" },
+          ].map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className={`relative w-8 h-8 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2`}
+              style={{ backgroundColor: item.color }}
+              onClick={() => setCorSistema(item.id)}
+              title={item.label}
+              aria-label={`Selecionar cor ${item.label}`}
+            >
+
+              {corSistema === item.id && (
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-white"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
         </div>
 
         {/* Coluna da direita */}
