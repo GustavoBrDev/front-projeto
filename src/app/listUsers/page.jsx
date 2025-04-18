@@ -1,17 +1,17 @@
 "use client"
+
 import Image from "next/image";
 import { useState, useEffect } from "react"
 import { HeaderDemo } from "@/components/Header/HeaderDemo"
 import { Header } from "@/components/Header/Header"
 import { BlueBackground } from "@/components/topBar/BlueBackground"
 import { WhiteContainer } from "@/components/White-Container"
-import { FeedbackTitle } from "@/components/topBar/FeedbackTitle"
+import { ListUsersTitle } from "@/components/topBar/ListUsersTitle";
 import { useUser } from "../UserProvider"
 import { Loading } from "@/components/Loading"
-import { Search } from "lucide-react"
 import SearchBar from "@/components/inputs/SearchBar";
+import CadastroProfessorModal from "@/components/modals/CadastroProfessorModal";
 
-// Dados de exemplo para usuários
 const usersData = [
   { id: 1, name: "Pedro Wilhelm", email: "pedro@email.com", role: "aluno", avatar: "/default-avatar.png" },
   { id: 2, name: "Ana Souza", email: "ana@email.com", role: "professor", avatar: "/default-avatar.png" },
@@ -41,7 +41,7 @@ export default function ListUsers() {
     <div className="min-h-screen bg-gray-100">
       <Header />
       <BlueBackground>
-        <FeedbackTitle iconWidth={40} iconHeight={40} textSize={"3xl"} text="Professores" />
+        <ListUsersTitle iconWidth={40} iconHeight={40} textSize={"3xl"} type={"Teachers"} />
       </BlueBackground>
 
       <div className="container flex justify-center w-screen mx-auto">
@@ -50,9 +50,15 @@ export default function ListUsers() {
             <Loading />
           ) : (
             <div className="space-y-8">
-              {/* Pesquisa */}
+
+              {/* Botão de cadastrar usuário com modal embutido */}
+              <div className="flex justify-end px-4">
+                <CadastroProfessorModal />
+              </div>
+
+              {/* Barra de pesquisa */}
               <div className="flex justify-center">
-                <SearchBar/>
+                <SearchBar />
               </div>
 
               {/* Lista de usuários */}
@@ -64,11 +70,10 @@ export default function ListUsers() {
                   >
                     <Image
                       src={user?.avatar || "/assets/profile.png"}
-                      alt={user.name} 
+                      alt={user.name}
                       width={20}
                       height={20}
                       className="w-12 h-12 rounded-full object-cover border-2 border-white"
-                      
                     />
                     <div>
                       <h2 className="font-semibold">{user.name}</h2>
