@@ -125,11 +125,11 @@ export default function CadastroProfessorModal() {
                       <option value="" disabled>
                         Selecione um curso
                       </option>
-                      <option value="matematica">Matemática</option>
-                      <option value="portugues">Português</option>
-                      <option value="historia">História</option>
-                      <option value="geografia">Geografia</option>
-                      <option value="ciencias">Ciências</option>
+                      <option value="usinagem">Usinagem</option>
+                      <option value="sistemas">Programador de Sistemas da Informação</option>
+                      <option value="ferramentaria">Ferramentaria</option>
+                      <option value="eletrica">Elétrica</option>
+                      <option value="mecanica">Mecânica</option>
                     </select>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                       <ChevronDown className="h-4 w-4 text-gray-500" />
