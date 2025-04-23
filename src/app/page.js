@@ -1,5 +1,6 @@
 "use client";
 
+
 /**
  * Página inicial do aplicativo.
  *

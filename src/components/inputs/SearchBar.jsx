@@ -24,7 +24,7 @@ export default function SearchBar( { placeholder, onChange, filterOptions, onFil
                 placeholder={placeholder}
             />
 
-            {/* Container do ícone de filtros com dropdown */}
+            { filterOptions && filterOptions.length > 0 && (
             <div
                 className="relative"
                 onMouseEnter={() => setShowFilters(true)}
@@ -52,7 +52,7 @@ export default function SearchBar( { placeholder, onChange, filterOptions, onFil
                         ))}
                     </div>
                 )}
-            </div>
+            </div>)}
         </div>
     );
 }

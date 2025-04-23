@@ -8,7 +8,6 @@
  */
 import { SessionProvider } from 'next-auth/react';
 import './globals.css';
-import { User } from 'lucide-react';
 import { UserProvider } from './UserProvider';
 
 /**

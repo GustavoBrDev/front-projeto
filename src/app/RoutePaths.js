@@ -17,5 +17,5 @@ export const RoutePaths = {
     PRE_COUNCILS: "/pre-councils",
     COUNCILS: "/councils",
     ERROR: "/error",
-};
+    };
   

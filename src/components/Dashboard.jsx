@@ -40,6 +40,9 @@ export default function Dashboard() {
           clearInterval(timer)
           return prev
         }
+      <BlueBackground>
+        <DashboardTitle iconWidth={40} iconHeight={40} textSize={"3xl"} turma="AI PSIN 2023/2 INT 1" currentDate={currentDate} />
+      </BlueBackground>
 
         let newSeconds = prev.seconds - 1
         let newMinutes = prev.minutes

@@ -4,8 +4,8 @@ import React from "react"
 import { useUser } from "../UserProvider"
 import { Header } from "@/components/Header/Header"
 import { Loading } from "@/components/Loading"
-import { HeaderDemo } from "@/components/Header/HeaderDemo"
 import { useState, useEffect } from "react"
+import { ErrorAlert } from "@/components/alerts/ErrorAlert"
 import {
   Search,
   Users,
@@ -15,6 +15,8 @@ import {
   ChevronUp,
   Clipboard,
 } from "lucide-react"
+
+import Image from "next/image"
 
 // SearchBar component
 const SearchBar = ({ placeholder, onChange }) => {
@@ -49,10 +51,11 @@ export default function FeedbackSystem() {
   const [isMobile, setIsMobile] = useState(false)
   const [callForConversation, setCallForConversation] = useState(false)
   const [viewMode, setViewMode] = useState("students") // "students" or "teachers"
-  const [expandedTeacher, setExpandedTeacher] = useState("Heitor Valentim")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
-  const { user } = useUser()
+  const [expandedTeacher, setExpandedTeacher] = useState("Heitor Valentim");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const { user } = useUser();
+  const [ error, setError ] = useState("");
 
   // State to store feedback text for each student
   const [feedbackTexts, setFeedbackTexts] = useState({
@@ -101,10 +104,11 @@ export default function FeedbackSystem() {
   // Handle submit feedback
   const handleSubmitFeedback = () => {
     if (!feedbackTexts[selectedStudent]) {
-      alert("Por favor, escreva um feedback antes de enviar.")
+      setError("Por favor, insira um feedback ao estudante.")
       return
     }
 
+    setError(null)
     setIsLoading(true)
 
     // Simulate API call
@@ -253,11 +257,12 @@ export default function FeedbackSystem() {
   return (
     <div className="min-h-screen bg-gray-100 mx-auto">
         <Header />
+        
         <div className="flex flex-1 overflow-hidden relative">
           {/* Mobile Overlay */}
           {sidebarOpen && isMobile && (
             <div
-              className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+              className="fixed inset-0 bg-gray-500 opacity-20 z-50 md:hidden"
               onClick={toggleSidebar}
               aria-hidden="true"
             />
@@ -267,13 +272,13 @@ export default function FeedbackSystem() {
           <aside
             className={`
               bg-blue-800 text-white flex flex-col flex-shrink-0 
-              transition-all duration-300 ease-in-out z-9
-              ${isMobile ? "fixed right-0 top-0 bottom-0 pt-14" : "relative left-0"}
+              transition-all duration-300 ease-in-out z-20
+              ${isMobile ? "fixed right-0 top-0 bottom-0 pt-14 z-60" : "relative left-0"}
               ${
                 sidebarOpen
                   ? "w-64 translate-x-0"
                   : isMobile
-                    ? "w-0 translate-x-full"
+                    ? "w-0 translate-x-full "
                     : "w-0 -translate-x-full md:translate-x-0 md:w-64"
               }
             `}
@@ -316,9 +321,11 @@ export default function FeedbackSystem() {
                     }}
                   >
                     <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
-                      <img
-                        src={student.avatar || "/placeholder.svg"}
+                      <Image
+                        src={student.avatar ? student.avatar : `/assets/avatar-padrao.jpg`}
                         alt={student.name}
+                        width={10}
+                        height={10}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -354,9 +361,11 @@ export default function FeedbackSystem() {
                       onClick={() => toggleTeacherExpansion(teacher.name)}
                     >
                       <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
-                        <img
-                          src={teacher.avatar || "/placeholder.svg"}
+                        <Image
+                          src={teacher.avatar ? teacher.avatar : `/assets/avatar-padrao.jpg`}
                           alt={teacher.name}
+                          width={10}
+                          height={10}
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -451,16 +460,17 @@ export default function FeedbackSystem() {
 
               {/* Feedback Card */}
               <div className="bg-white w-[calc(100%-5rem)] mx-auto rounded-lg shadow-md overflow-hidden">
+              
                 {/* Student Info */}
                 <div className="bg-gray-200 p-3 md:p-4 flex items-center">
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden mr-2 md:mr-3 flex-shrink-0">
-                    <img
+                    <Image
                       src={
                         students.find((student) => student.name === selectedStudent)?.avatar ||
-                        "/placeholder.svg?height=40&width=40" ||
-                        "/placeholder.svg" ||
-                        "/placeholder.svg"
+                        "/assets/avatar-padrao.jpg"
                       }
+                      width={10}
+                      height={10}
                       alt={selectedStudent}
                       className="w-full h-full object-cover"
                     />
@@ -518,6 +528,7 @@ export default function FeedbackSystem() {
                         </div>
                       )}
 
+                      { error && <ErrorAlert message={error} /> }
                       <div className="flex justify-end mt-3 md:mt-4">
                         <button
                           className="bg-blue-800 text-white px-4 md:px-6 py-1.5 md:py-2 rounded-[24px] hover:bg-blue-700 text-sm md:text-base"
@@ -542,7 +553,6 @@ export default function FeedbackSystem() {
             </button>
           </main>
         </div>
-        <HeaderDemo />
     </div>
   )
 }
