@@ -27,9 +27,9 @@ export default function ConfiguracoesPanel() {
 
     switch (corSistema) {
       case "blue":
-        root.style.setProperty('--bluePrimary', '#0047AB');
-        root.style.setProperty('--blueSecondary', '#007BFF');
-        root.style.setProperty('--blueTertiary', '#A3C1DA');
+        root.style.setProperty('--bluePrimary', '#0A336D');
+        root.style.setProperty('--blueSecondary', '#0166B4');
+        root.style.setProperty('--blueTertiary', '#3AA9DC');
         break;
       case "green":
         root.style.setProperty('--bluePrimary', '#4CAF50');
