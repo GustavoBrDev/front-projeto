@@ -80,7 +80,7 @@ export function Header() {
         ref={(el) => (menuRefs.current[`menu-${index}`] = el)}
       >
         <button
-          className="flex items-center gap-1 px-3 py-2 text-white hover:bg-blue-700 rounded-md transition-colors duration-200"
+          className="flex items-center gap-1 px-3 py-2 text-[var(--white)] hover:bg-[var(--bluePrimary)] rounded-md transition-colors duration-200"
           onClick={() =>
             setOpenMenus((prev) => ({
               ...prev,
@@ -104,7 +104,7 @@ export function Header() {
         </button>
 
         {openMenus[`menu-${index}`] && (
-          <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform origin-top-left transition-all duration-200 ease-in-out">
+          <div className="absolute left-0 mt-2 w-48 bg-[var(--white)] rounded-md shadow-lg z-50 transform origin-top-left transition-all duration-200 ease-in-out">
             <div className="py-1">
               <a
                 href="#"
@@ -146,12 +146,12 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-[var(--blueSecondary)] text-white fixed px-6 top-0 w-full z-50">
+      <header className="bg-[var(--blueSecondary)] text-[var(--white)] fixed px-6 top-0 w-full z-50">
         <div className="w-full px-6">
           <div className="flex h-16 items-center justify-between w-full">
             {/* Logo - oculto em mobile */}
             <div className="hidden md:flex items-center">
-              <Link href={RoutePaths.HOME} className="text-white">
+              <Link href={RoutePaths.HOME} className="text-[var(--white)]">
                 <Image
                   src="/assets/icone.png"
                   alt="Logo"
@@ -164,7 +164,7 @@ export function Header() {
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
-                className="p-2 rounded-md hover:bg-blue-700 focus:outline-none transition-colors duration-200"
+                className="p-2 rounded-md hover:bg-[var(--bluePrimary)] focus:outline-none transition-colors duration-200"
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Menu principal"
               >
@@ -195,7 +195,7 @@ export function Header() {
                         <Link
                           key={index}
                           href={item.href}
-                          className="flex items-center text-white hover:text-blue-100 transition-colors duration-200"
+                          className="flex items-center text-[var(--white)] hover:text-blue-100 transition-colors duration-200"
                         >
                           {item.label}
                         </Link>

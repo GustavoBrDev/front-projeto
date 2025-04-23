@@ -271,7 +271,7 @@ export default function FeedbackSystem() {
           {/* Left Sidebar on Desktop, Right Sidebar on Mobile */}
           <aside
             className={`
-              bg-blue-800 text-white flex flex-col flex-shrink-0 
+            bg-[var(--bluePrimary)] text-[var(--white)] flex flex-col flex-shrink-0 
               transition-all duration-300 ease-in-out z-20
               ${isMobile ? "fixed right-0 top-0 bottom-0 pt-14 z-60" : "relative left-0"}
               ${
@@ -292,7 +292,7 @@ export default function FeedbackSystem() {
             {user?.role === "tecnico" && (
               <div className="px-3 pb-2">
                 <button
-                  className="w-full bg-blue-600 text-white py-2 px-3 rounded-[24px] text-sm font-medium hover:bg-blue-500"
+                  className="w-full bg-[var(--bluePrimary)] text-[var(--white)] py-2 px-3 rounded-[24px] text-sm font-medium hover:text-[var(--blueTertiary)]"
                   onClick={toggleViewMode}
                 >
                   {viewMode === "students" ? "Ver professores" : "Ver alunos"}
@@ -309,8 +309,8 @@ export default function FeedbackSystem() {
                 {students.map((student, index) => (
                   <div
                     key={index}
-                    className={`flex items-center p-3 border-b border-blue-700 cursor-pointer ${
-                      student.name === selectedStudent ? "bg-blue-700" : "hover:bg-blue-700"
+                    className={`flex items-center p-3 border-b border-[var(--bluePrimary)] cursor-pointer ${
+                      student.name === selectedStudent ? "bg-[var(--bluePrimary)]" : "hover:bg-[var(--bluePrimary)]"
                     }`}
                     onClick={() => {
                       setSelectedStudent(student.name)
@@ -334,7 +334,7 @@ export default function FeedbackSystem() {
                       <div
                         className={`text-xs ${
                           student.status === "Finalizado"
-                            ? "text-green-300"
+                            ? "text-[var(--green)]"
                             : student.status === "Em andamento"
                               ? "text-yellow-300"
                               : "text-gray-300"
@@ -355,9 +355,9 @@ export default function FeedbackSystem() {
                 style={{ maxHeight: isMobile ? "calc(100vh - 110px)" : "calc(100vh - 56px)" }}
               >
                 {teachers.map((teacher, index) => (
-                  <div key={index} className="border-b border-blue-700">
+                  <div key={index} className="border-b bg-[var(--bluePrimary)]">
                     <div
-                      className="flex items-center p-3 cursor-pointer hover:bg-blue-700"
+                      className="flex items-center p-3 cursor-pointer hover:bg-[var(--bluePrimary)]"
                       onClick={() => toggleTeacherExpansion(teacher.name)}
                     >
                       <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
@@ -391,12 +391,12 @@ export default function FeedbackSystem() {
             <div className="bg-white p-4 border-b flex justify-between items-center flex-shrink-0">
               {user?.role === "tecnico" ? (
                 <>
-                  <div className="text-xl font-semibold text-blue-800">
+                  <div className="text-xl font-semibold text-[var(--bluePrimary)]">
                     {completedFeedbacks}/{students.length} feedbacks concluídos
                   </div>
                   <div className="md:hidden">
                     <button
-                      className="text-blue-800 p-1 bg-gray-100 rounded-full shadow-md"
+                      className="text-[var(--bluePrimary)] p-1 bg-gray-100 rounded-full shadow-md"
                       onClick={toggleSidebar}
                       aria-label="Toggle student list"
                     >
@@ -406,12 +406,12 @@ export default function FeedbackSystem() {
                 </>
               ) : (
                 <>
-                  <div className="text-xl font-semibold text-blue-800">
+                  <div className="text-xl font-semibold text-[var(--bluePrimary)]">
                     {completedFeedbacks}/{students.length} pré-conselhos
                   </div>
                   <div className="md:hidden">
                     <button
-                      className="text-blue-800 p-1 bg-gray-100 rounded-full shadow-md"
+                      className="text-[var(--bluePrimary)] p-1 bg-gray-100 rounded-full shadow-md"
                       onClick={toggleSidebar}
                       aria-label="Toggle student list"
                     >
@@ -425,11 +425,11 @@ export default function FeedbackSystem() {
             {/* Content - This part should have its own scroll */}
             <div className="flex-1 overflow-y-auto p-3 md:p-6 relative">
               {user?.role === "tecnico" ? (
-                <h1 className="text-xl md:text-2xl font-bold text-blue-800 mb-4 md:mb-6 text-center">
+                <h1 className="text-xl md:text-2xl font-bold text-[var(--bluePrimary)] mb-4 md:mb-6 text-center">
                   AI PSIN 2023/2 INT 1
                 </h1>
               ) : (
-                <h1 className="text-xl md:text-2xl font-bold text-blue-800 mb-4 md:mb-6 text-center">
+                <h1 className="text-xl md:text-2xl font-bold text-[var(--bluePrimary)] mb-4 md:mb-6 text-center">
                   Programação JAVA
                 </h1>
               )}
@@ -440,26 +440,26 @@ export default function FeedbackSystem() {
                   <button
                     onClick={navigateToPrevStudent}
                     disabled={currentStudentIndex <= 0}
-                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md ${
+                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 bg-[var(--white)] p-2 rounded-full shadow-md ${
                       currentStudentIndex <= 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"
                     }`}
                   >
-                    <ChevronLeft size={24} className="text-blue-800" />
+                    <ChevronLeft size={24} className="bg-[var(--bluePrimary)]" />
                   </button>
                   <button
                     onClick={navigateToNextStudent}
                     disabled={currentStudentIndex >= students.length - 1}
-                    className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md ${
+                    className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-[var(--white)] p-2 rounded-full shadow-md ${
                       currentStudentIndex >= students.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"
                     }`}
                   >
-                    <ChevronRight size={24} className="text-blue-800" />
+                    <ChevronRight size={24} className="bg-[var(--bluePrimary)]" />
                   </button>
                 </>
               )}
 
               {/* Feedback Card */}
-              <div className="bg-white w-[calc(100%-5rem)] mx-auto rounded-lg shadow-md overflow-hidden">
+              <div className="bg-[var(--white)] w-[calc(100%-5rem)] mx-auto rounded-lg shadow-md overflow-hidden">
               
                 {/* Student Info */}
                 <div className="bg-gray-200 p-3 md:p-4 flex items-center">
@@ -496,7 +496,7 @@ export default function FeedbackSystem() {
                         {feedbackTexts[selectedStudent] || "Sem feedback disponível."}
                       </div>
                       {/* Clipboard icon for completed feedback */}
-                      <div className="absolute bottom-4 right-4 text-blue-600">
+                      <div className="absolute bottom-4 right-4 bg-[var(--bluePrimary)]">
                         <button className="p-2 rounded-full hover:bg-blue-50">
                           <Clipboard size={20} />
                         </button>
@@ -531,7 +531,7 @@ export default function FeedbackSystem() {
                       { error && <ErrorAlert message={error} /> }
                       <div className="flex justify-end mt-3 md:mt-4">
                         <button
-                          className="bg-blue-800 text-white px-4 md:px-6 py-1.5 md:py-2 rounded-[24px] hover:bg-blue-700 text-sm md:text-base"
+                          className="bg-[var(--bluePrimary)] text-[var(--white)] px-4 md:px-6 py-1.5 md:py-2 rounded-[24px] hover:bg-[var(--blueTertiary)] text-sm md:text-base"
                           onClick={handleSubmitFeedback}
                         >
                           Enviar
@@ -545,7 +545,7 @@ export default function FeedbackSystem() {
 
             {/* Fixed Mobile Toggle Button */}
             <button
-              className="md:hidden fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg z-30"
+              className="md:hidden fixed bottom-4 right-4 bg-[var(--bluePrimary)] text-[var(--white)] p-3 rounded-full shadow-lg z-30"
               onClick={toggleSidebar}
               aria-label="Toggle list"
             >

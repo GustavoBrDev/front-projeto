@@ -9,6 +9,7 @@
 import { SessionProvider } from 'next-auth/react';
 import './globals.css';
 import { UserProvider } from './UserProvider';
+import { ThemeProvider } from './ThemeProvider';
 
 /**
  * Layout raiz do aplicativo.
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
             <body>
                 <SessionProvider>
                     <UserProvider>
-                        {children}
+                        <ThemeProvider>{children}</ThemeProvider>
                     </UserProvider>
                 </SessionProvider>
             </body>

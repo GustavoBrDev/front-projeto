@@ -136,14 +136,14 @@ export function UserAvatar({ user, onClick, showDropdown = false }) {
             <img src={user.avatarUrl || "/placeholder.svg"} alt={user.name} className="h-full w-full object-cover" />
           </div>
         ) : (
-          <div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-medium hover:bg-blue-700 transition-colors duration-200">
+          <div className="h-8 w-8 rounded-full bg-[var(--red)] flex items-center justify-center text-[var(--white)] text-sm font-medium hover:bg-[var(--blueTertiary)] transition-colors duration-200">
             {user.name.substring(0, 2).toUpperCase()}
           </div>
         )}
       </button>
 
       {showDropdown && isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 transform origin-top-right transition-all duration-200 ease-in-out">
+        <div className="absolute right-0 mt-2 w-48 bg-[var(--white)] rounded-md shadow-lg z-10 transform origin-top-right transition-all duration-200 ease-in-out">
           <div className="py-1">
             <div className="px-4 py-2 text-sm text-gray-500 border-b">Mudar para:</div>
             {Object.keys(mockUsers).map((role) => (
@@ -155,7 +155,7 @@ export function UserAvatar({ user, onClick, showDropdown = false }) {
                 }`}
               >
                 <div className="flex items-center">
-                  <div className="h-6 w-6 rounded-full bg-red-500 flex items-center justify-center text-white text-xs font-medium mr-2">
+                  <div className="h-6 w-6 rounded-full bg-[var(--red)] flex items-center justify-center text-[var(--white)] text-xs font-medium mr-2">
                     {mockUsers[role].name.substring(0, 2).toUpperCase()}
                   </div>
                   <div>

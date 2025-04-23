@@ -65,14 +65,14 @@ export default function ListUsers() {
                 {filteredUsers.map(user => (
                   <div
                     key={user.id}
-                    className="bg-[#002c6e] text-white flex items-center rounded-3xl shadow-md space-x-4 px-6 mx-auto w-full max-w-[1217px] h-[85px]"
+                    className="bg-[var(--bluePrimary)] text-[var(--white)] flex items-center rounded-3xl shadow-md space-x-4 px-6 mx-auto w-full max-w-[1217px] h-[85px]"
                   >
                     <Image
                       src={user?.avatar || "/assets/profile.png"}
                       alt={user.name}
                       width={20}
                       height={20}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-white"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-[var(--white)]"
                     />
                     <div>
                       <h2 className="font-semibold">{user.name}</h2>
