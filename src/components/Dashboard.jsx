@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { FileText, FileEdit, Settings } from "lucide-react"
 import { Header } from "./Header/Header"
+import { BlueBackground } from "./topBar/BlueBackground"
+import { DashboardTitle } from "./topBar/DashboardTitle"
 
 export default function Dashboard() {
   const [currentDate] = useState("15/02/2025")
@@ -11,31 +13,9 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-100 mx-auto">
       <Header />
 
-      {/* Subheader */}
-      <div className="bg-sky-500 text-white py-4">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <FileText className="h-6 w-6" />
-              <span className="text-xl font-medium">Conselhos</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-              <span className="text-xl font-medium">Dashboard</span>
-            </div>
-            <div className="text-right">
-              <h2 className="text-2xl font-bold">AI PSIN MI74</h2>
-              <p className="text-sm">{currentDate}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BlueBackground>
+        <DashboardTitle iconWidth={40} iconHeight={40} textSize={"3xl"} turma="AI PSIN 2023/2 INT 1" currentDate={currentDate} />
+      </BlueBackground>
 
       {/* Main Content */}
       <main className="container mx-auto p-4">
