@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Columns } from "lucide-react";
 
 export const RegisterCouncilTitle = ( { iconWidth, iconHeight, textSize, onClick, turma ,currentDate }) => {
     return (
