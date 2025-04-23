@@ -8,10 +8,10 @@ export function Button({
   ...props
 }) {
   const variantClasses = {
-    default: "bg-[#29abe2] text-white hover:bg-[#1d8eb9] border border-transparent",
+    default: "bg-[var(--blueTertiary)] text-white hover:bg-[var(--bluePrimary)] border border-transparent",
     outline: "bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-100",
     ghost: "bg-transparent text-gray-700 hover:bg-gray-100 border-none",
-    link: "bg-transparent text-[#29abe2] hover:underline border-none p-0",
+    link: "bg-transparent text-[var(--blueTertiary)] hover:underline border-none p-0",
   }
 
   const sizeClasses = {

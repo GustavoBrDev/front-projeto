@@ -244,7 +244,6 @@ export default function ConselhoDeClasse() {
   return (
     <div className="min-h-screen bg-gray-100 mx-auto">
       <Header />
-      
       <BlueBackground>
         <CouncilTitle iconWidth={40} iconHeight={40} textSize={"3xl"}/>
       </BlueBackground>
