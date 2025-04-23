@@ -44,7 +44,7 @@ export function TabsTrigger({
     <button
       onClick={() => setActiveTab(value)}
       className={`px-4 py-2 text-sm font-medium transition-colors ${
-        isActive ? "bg-[#29abe2] text-white" : "bg-transparent text-gray-700 hover:bg-gray-100"
+        isActive ? "bg-[var(--blueTertiary)] text-[var(--white)]" : "bg-transparent text-gray-700 hover:bg-gray-200"
       } ${className}`}
       data-state={isActive ? "active" : "inactive"}
     >

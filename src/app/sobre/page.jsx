@@ -23,13 +23,13 @@ export default function HelpPage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tight mb-4">Bem-vindo ao Conselho do Estudante</h1>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Uma plataforma completa para gerenciamento dos conselhos de classe do SENAI
             </p>
           </div>
 
           <Tabs defaultValue="about" className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-5 mb-8 bg-[#e6f4fa]">
+            <TabsList className="grid grid-cols-2 md:grid-cols-5 mb-8 bg-[var(--white)]">
               <TabsTrigger value="about">Sobre</TabsTrigger>
               <TabsTrigger value="roles">Perfis de Usuário</TabsTrigger>
               <TabsTrigger value="features">Funcionalidades</TabsTrigger>
@@ -40,7 +40,7 @@ export default function HelpPage() {
             {/* About Section */}
             <TabsContent value="about" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[#f5f9fc] border-b border-gray-100">
+                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
                   <CardTitle>Sobre o Conselho do Estudante</CardTitle>
                   <CardDescription>Conheça mais sobre nossa plataforma</CardDescription>
                 </CardHeader>
@@ -55,7 +55,7 @@ export default function HelpPage() {
                     Fevereiro de 2025 e conclusão estimada para Abril do mesmo ano.
                   </p>
                   <div className="flex flex-col md:flex-row gap-4 mt-6">
-                    <Card className="flex-1 p-4 bg-[#e6f4fa]">
+                    <Card className="flex-1 p-4 bg-[var(--white)]">
                       <div className="flex items-center gap-3 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ export default function HelpPage() {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="text-[#0055a4]"
+                          className="text-[var(--bluePrimary)]"
                         >
                           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                           <circle cx="9" cy="7" r="4" />
@@ -80,7 +80,7 @@ export default function HelpPage() {
                         Suporte para 5 tipos de usuários com diferentes permissões e funcionalidades
                       </p>
                     </Card>
-                    <Card className="flex-1 p-4 bg-[#e6f4fa]">
+                    <Card className="flex-1 p-4 bg-[var(--white)]">
                       <div className="flex items-center gap-3 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ export default function HelpPage() {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="text-[#0055a4]"
+                          className="text-[var(--bluePrimary)]"
                         >
                           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                         </svg>
@@ -100,7 +100,7 @@ export default function HelpPage() {
                       </div>
                       <p className="text-sm text-gray-600">Comunicação direta entre todos os usuários da plataforma</p>
                     </Card>
-                    <Card className="flex-1 p-4 bg-[#e6f4fa]">
+                    <Card className="flex-1 p-4 bg-[var(--white)]">
                       <div className="flex items-center gap-3 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@ export default function HelpPage() {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="text-[#0055a4]"
+                          className="text-[var(--bluePrimary)]"
                         >
                           <line x1="18" y1="20" x2="18" y2="10" />
                           <line x1="12" y1="20" x2="12" y2="4" />
@@ -132,16 +132,16 @@ export default function HelpPage() {
             {/* User Roles Section */}
             <TabsContent value="roles" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[#f5f9fc] border-b border-gray-100">
+                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
                   <CardTitle>Perfis de Usuário</CardTitle>
                   <CardDescription>Conheça os diferentes tipos de usuários e suas permissões</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6">
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="aluno">
-                      <AccordionTrigger className="hover:text-[#29abe2]">
+                      <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[#e6f4fa] text-[#0055a4] border-[#0055a4]">
+                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Aluno
                           </Badge>
                           <span>Acesso básico ao sistema</span>
@@ -159,9 +159,9 @@ export default function HelpPage() {
                     </AccordionItem>
 
                     <AccordionItem value="representante">
-                      <AccordionTrigger className="hover:text-[#29abe2]">
+                      <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[#e6f4fa] text-[#0055a4] border-[#0055a4]">
+                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Representante
                           </Badge>
                           <span>Representante de turma</span>
@@ -180,9 +180,9 @@ export default function HelpPage() {
                     </AccordionItem>
 
                     <AccordionItem value="professor">
-                      <AccordionTrigger className="hover:text-[#29abe2]">
+                      <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[#e6f4fa] text-[#0055a4] border-[#0055a4]">
+                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Professor
                           </Badge>
                           <span>Docentes da instituição</span>
@@ -202,9 +202,9 @@ export default function HelpPage() {
                     </AccordionItem>
 
                     <AccordionItem value="tecnico">
-                      <AccordionTrigger className="hover:text-[#29abe2]">
+                      <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[#e6f4fa] text-[#0055a4] border-[#0055a4]">
+                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Técnico Pedagógico
                           </Badge>
                           <span>Equipe pedagógica</span>
@@ -228,9 +228,9 @@ export default function HelpPage() {
                     </AccordionItem>
 
                     <AccordionItem value="orientador">
-                      <AccordionTrigger className="hover:text-[#29abe2]">
+                      <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[#e6f4fa] text-[#0055a4] border-[#0055a4]">
+                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Orientador Pedagógico
                           </Badge>
                           <span>Coordenação pedagógica</span>
@@ -255,9 +255,9 @@ export default function HelpPage() {
                     </AccordionItem>
 
                     <AccordionItem value="admin">
-                      <AccordionTrigger className="hover:text-[#29abe2]">
+                      <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[#e6f4fa] text-[#0055a4] border-[#0055a4]">
+                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Administrador
                           </Badge>
                           <span>Administração do sistema</span>
@@ -280,7 +280,7 @@ export default function HelpPage() {
             {/* Features Section */}
             <TabsContent value="features" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[#f5f9fc] border-b border-gray-100">
+                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
                   <CardTitle>Principais Funcionalidades</CardTitle>
                   <CardDescription>Conheça os recursos disponíveis na plataforma</CardDescription>
                 </CardHeader>
@@ -297,7 +297,7 @@ export default function HelpPage() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-[#0055a4]"
+                        className="text-[var(--bluePrimary)]"
                       >
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                         <polyline points="14 2 14 8 20 8" />
@@ -325,7 +325,7 @@ export default function HelpPage() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-[#0055a4]"
+                        className="text-[var(--bluePrimary)]"
                       >
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                       </svg>
@@ -349,7 +349,7 @@ export default function HelpPage() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-[#0055a4]"
+                        className="text-[var(--bluePrimary)]"
                       >
                         <line x1="18" y1="20" x2="18" y2="10" />
                         <line x1="12" y1="20" x2="12" y2="4" />
@@ -375,7 +375,7 @@ export default function HelpPage() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-[#0055a4]"
+                        className="text-[var(--bluePrimary)]"
                       >
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                         <circle cx="9" cy="7" r="4" />
@@ -402,7 +402,7 @@ export default function HelpPage() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-[#0055a4]"
+                        className="text-[var(--bluePrimary)]"
                       >
                         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                         <path d="M6 12v5c3 3 9 3 12 0v-5" />
@@ -446,7 +446,7 @@ export default function HelpPage() {
             {/* Technical Information */}
             <TabsContent value="technical" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[#f5f9fc] border-b border-gray-100">
+                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
                   <CardTitle>Informações Técnicas</CardTitle>
                   <CardDescription>Detalhes sobre a arquitetura e tecnologias utilizadas</CardDescription>
                 </CardHeader>
@@ -456,19 +456,19 @@ export default function HelpPage() {
                       <h3 className="font-medium mb-2">Frontend</h3>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2">
-                          <Badge className="bg-[#29abe2] hover:bg-[#29abe2]">Next.js</Badge>
+                          <Badge className="bg-[var(--blueTertiary)] hover:bg-[var(--blueTertiary)]">Next.js</Badge>
                           <span className="text-gray-600">Framework React para renderização</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <Badge className="bg-[#29abe2] hover:bg-[#29abe2]">React</Badge>
+                          <Badge className="bg-[var(--blueTertiary)] hover:bg-[var(--blueTertiary)]">React</Badge>
                           <span className="text-gray-600">Biblioteca para interfaces</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <Badge className="bg-[#29abe2] hover:bg-[#29abe2]">App Router</Badge>
+                          <Badge className="bg-[var(--blueTertiary)] hover:bg-[var(--blueTertiary)]">App Router</Badge>
                           <span className="text-gray-600">Sistema de rotas</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <Badge className="bg-[#29abe2] hover:bg-[#29abe2]">UI Libraries</Badge>
+                          <Badge className="bg-[var(--blueTertiary)] hover:bg-[var(--blueTertiary)]">UI Libraries</Badge>
                           <span className="text-gray-600">Componentes prontos</span>
                         </li>
                       </ul>
@@ -478,18 +478,18 @@ export default function HelpPage() {
                       <h3 className="font-medium mb-2">Backend</h3>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2">
-                          <Badge className="bg-[#29abe2] hover:bg-[#29abe2]">Spring Boot</Badge>
+                          <Badge className="bg-[var(--blueTertiary)] hover:bg-[var(--blueTertiary)]">Spring Boot</Badge>
                           <span className="text-gray-600">Framework Java</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <Badge className="bg-[#29abe2] hover:bg-[#29abe2]">API RESTful</Badge>
+                          <Badge className="bg-[var(--blueTertiary)] hover:bg-[var(--blueTertiary)]">API RESTful</Badge>
                           <span className="text-gray-600">Comunicação entre sistemas</span>
                         </li>
                       </ul>
                       <div className="mt-4">
                         <Link
                           href="https://github.com/GustavoBrDev/projeto-conselho"
-                          className="text-sm flex items-center gap-1 text-[#0055a4] hover:underline"
+                          className="text-sm flex items-center gap-1 text-[var(--bluePrimary)] hover:underline"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -521,9 +521,9 @@ export default function HelpPage() {
                     <Link
                       href="https://www.figma.com/design/0fpIseqAP7hBrQa0LOPCUi/Prot%C3%B3tipo-SENAI?node-id=0-1&t=Z8737biCY2sqAGdd-1"
                       target="_blank"
-                      className="inline-flex items-center gap-2 text-[#0055a4] hover:underline"
+                      className="inline-flex items-center gap-2 text-[var(--bluePrimary)] hover:underline"
                     >
-                      <Button variant="outline" size="sm" className="gap-2 border-[#29abe2] text-[#0055a4]">
+                      <Button variant="outline" size="sm" className="gap-2 border-[var(--blueTertiary)] text-[var(--bluePrimary)]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -550,7 +550,7 @@ export default function HelpPage() {
             {/* Getting Started */}
             <TabsContent value="start" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[#f5f9fc] border-b border-gray-100">
+                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
                   <CardTitle>Primeiros Passos</CardTitle>
                   <CardDescription>Como começar a utilizar o Conselho do Estudante</CardDescription>
                 </CardHeader>
@@ -562,7 +562,7 @@ export default function HelpPage() {
                       recebido suas credenciais, entre em contato com o administrador do sistema.
                     </p>
 
-                    <div className="bg-[#e6f4fa] p-4 rounded-md">
+                    <div className="bg-[var(--white)] p-4 rounded-md">
                       <div className="flex items-center gap-2 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -574,7 +574,7 @@ export default function HelpPage() {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="text-[#0055a4]"
+                          className="text-[var(--bluePrimary)]"
                         >
                           <circle cx="12" cy="12" r="10" />
                           <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
@@ -611,7 +611,7 @@ export default function HelpPage() {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            className="text-[#0055a4]"
+                            className="text-[var(--bluePrimary)]"
                           >
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
@@ -633,7 +633,7 @@ export default function HelpPage() {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            className="text-[#0055a4]"
+                            className="text-[var(--bluePrimary)]"
                           >
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                           </svg>
@@ -654,7 +654,7 @@ export default function HelpPage() {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            className="text-[#0055a4]"
+                            className="text-[var(--bluePrimary)]"
                           >
                             <circle cx="12" cy="12" r="3" />
                             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
@@ -681,7 +681,7 @@ export default function HelpPage() {
                     </ul>
 
                     <div className="mt-6 flex justify-center">
-                      <Button className="gap-2 bg-[#29abe2] hover:bg-[#1d8eb9]">
+                      <Button className="gap-2 bg-[var(--blueTertiary)] hover:bg-[var(--blueTertiary)]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -710,7 +710,7 @@ export default function HelpPage() {
 
       {/* Chat button flutuante */}
       <div className="fixed bottom-6 right-6">
-        <button className="w-12 h-12 bg-[#0055a4] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#004080] transition-colors">
+        <button className="w-12 h-12 bg-[var(--bluePrimary)] text-[var(--white)] rounded-full shadow-lg flex items-center justify-center hover:bg-[#004080] transition-colors">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

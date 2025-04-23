@@ -19,12 +19,8 @@ import { useUser } from "../UserProvider";
 
 import Image from "next/image";
 import {
-  ChevronLeft,
-  ChevronRight,
-  FileEdit,
   FileText,
   Settings,
-  MessageCircle,
 } from "lucide-react";
 
 import { RoutePaths } from "@/app/RoutePaths";
@@ -98,7 +94,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           {/* Boas-vindas */}
           <div className="flex justify-center mt-6 mb-12">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-full flex items-center shadow-md">
+            <div className="bg-gradient-to-r from-[var(--bluePrimary)] to-[var(--blueSecondary)] text-[var(--white)]  px-6 py-3 rounded-full flex items-center shadow-md">
               <span>Bem vindo, {user?.name}!</span>
               <span className="ml-2">👋</span>
             </div>
@@ -122,7 +118,7 @@ export default function Home() {
           <div className="flex items-center justify-center mt-10 mb-20 space-x-6">
             <a
               href="/sobre"
-              className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-full shadow-md hover:from-blue-700 hover:to-blue-600 transition-all duration-300 inline-block"
+              className="bg-gradient-to-r from-[var(--bluePrimary)] to-[var(--blueSecondary)] text-[var(--white)] px-6 py-3 rounded-full shadow-md hover:from-blue-700 hover:to-blue-600 transition-all duration-300 inline-block"
             >
               Aprenda sobre nosso site
             </a>
@@ -154,7 +150,7 @@ export default function Home() {
                 src="/assets/arrows/blue-left-arrow.png"
                 width={36}
                 height={36}
-                className="text-blue-900"
+                className="text-[var(--bluePrimary)]"
               />
             </button>
 
@@ -167,13 +163,13 @@ export default function Home() {
                     onClick={() => handleCardClick(index)}
                     className={`rounded-lg p-8 flex flex-col items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 ${
                       isActive
-                        ? "w-56 h-56 bg-white scale-110 shadow-xl text-blue-900"
+                        ? "w-56 h-56 bg-white scale-110 shadow-xl text-[var(--bluePrimary)]"
                         : "w-48 h-48 bg-gray-200 opacity-60 scale-95"
                     }`}
                   >
                     <div
                       className={`${
-                        isActive ? "text-blue-900" : "text-blue-400"
+                        isActive ? "text-[var(--bluePrimary)]" : "text-[var(--blueTertiary)]"
                       }`}
                     >
                       {card.icon}
@@ -181,7 +177,7 @@ export default function Home() {
                     <span
                       className={`${
                         isActive
-                          ? "font-semibold text-blue-900"
+                          ? "font-semibold text-[var(--bluePrimary)]"
                           : "text-gray-600"
                       }`}
                     >
@@ -200,7 +196,7 @@ export default function Home() {
                 src="/assets/arrows/blue-right-arrow.png"
                 width={36}
                 height={36}
-                className="text-blue-900"
+                className="text-[var(--bluePrimary)]"
               />
             </button>
           </div>
@@ -209,7 +205,7 @@ export default function Home() {
         {/* Chat flutuante */}
         <div className="fixed bottom-6 right-6">
           <a href="/chat">
-            <button className="bg-blue-900 text-white rounded-full p-4 shadow-lg">
+            <button className="bg-[var(--bluePrimary)] text-[var(--white)] rounded-full p-4 shadow-lg">
               <img
                 src="/assets/chats/filled-chat-icon.png"
                 alt="chat"
