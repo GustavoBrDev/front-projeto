@@ -198,7 +198,7 @@ export default function AgendarConselho() {
           ) : (
 
       <div className="max-w-6xl mx-auto p-4 relative">
-        <div className="bg-[var(--white)] rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-lg shadow-md p-6">
           {currentStep === 1 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Left Column */}
@@ -230,11 +230,11 @@ export default function AgendarConselho() {
                         key={professor.id}
                         className={`${
                           highlightedProfessor === professor.id ? "bg-[var(--bluePrimary)]" : "bg-[var(--bluePrimary)]"
-                        } text-[var(--white)] p-2 rounded-[24px] flex items-center cursor-pointer hover:bg-[var(--blueSecondary)]`}
+                        } text-white p-2 rounded-[24px] flex items-center cursor-pointer hover:bg-[var(--blueSecondary)]`}
                         onClick={() => handleProfessorClick(professor)}
                       >
                         <div
-                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-[var(--white)] text-xs mr-2`}
+                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-white text-xs mr-2`}
                         >
                           {professor.name.charAt(0)}
                         </div>
@@ -262,7 +262,7 @@ export default function AgendarConselho() {
                         onClick={() => handleProfessorClick(professor)}
                       >
                         <div
-                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-[var(--white)] text-xs mr-2`}
+                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-white text-xs mr-2`}
                         >
                           {professor.name.charAt(0)}
                         </div>
@@ -308,7 +308,7 @@ export default function AgendarConselho() {
                       <div
                         key={index}
                         className={`text-sm p-1 rounded-full ${
-                          date.current && date.day === selectedDate ? "bg-[var(--bluePrimary)] text-[var(--white)]" : ""
+                          date.current && date.day === selectedDate ? "bg-[var(--bluePrimary)] text-white" : ""
                         } ${!date.current ? "text-gray-400" : "hover:bg-gray-200 cursor-pointer"}`}
                         onClick={() => date.current && setSelectedDate(date.day)}
                       >
@@ -319,11 +319,11 @@ export default function AgendarConselho() {
                 </div>
 
                 <div className="flex items-center mb-6">
-                  <div className="flex-1 flex items-center border rounded-[24px] p-2 bg-[var(--white)]">
+                  <div className="flex-1 flex items-center border rounded-[24px] p-2 bg-white">
                     <img src="/assets/calendars/black-calendar.png" className="h-5 w-5 text-gray-50" />
                     <span className="ml-2 text-gray-700">{selectedDate.toString().padStart(2, "0")}/{selectedMonth.toString().padStart(2, "0")}/{selectedYear}</span>
                   </div>
-                  <div className="flex-1 flex items-center border rounded-[24px] p-2 ml-2 bg-[var(--white)] relative">
+                  <div className="flex-1 flex items-center border rounded-[24px] p-2 ml-2 bg-white relative">
                     <img src="/assets/clock.png" className="h-5 w-5 text-gray-50" />
                     <span
                       className="ml-2 text-gray-700 cursor-pointer"
@@ -332,7 +332,7 @@ export default function AgendarConselho() {
                       {selectedTime}
                     </span>
                     {showTimeSelector && (
-                      <div className="absolute z-50 top-full left-0 mt-2 w-32 bg-[var(--white)] border rounded shadow-lg max-h-48 overflow-y-auto">
+                      <div className="absolute z-50 top-full left-0 mt-2 w-32 bg-white border rounded shadow-lg max-h-48 overflow-y-auto">
                         {timeOptions.map((time) => (
                           <div
                             key={time}
@@ -352,7 +352,7 @@ export default function AgendarConselho() {
 
                 <div className="flex justify-end">
                   <button
-                    className="bg-[var(--bluePrimary)] hover:bg-[var(--blueSecondary)] text-[var(--white)] font-medium py-2 px-6 rounded-[24px]"
+                    className="bg-[var(--bluePrimary)] hover:bg-[var(--blueSecondary)] text-white font-medium py-2 px-6 rounded-[24px]"
                     onClick={handleProximoClick}
                   >
                     Próximo
@@ -377,7 +377,7 @@ export default function AgendarConselho() {
                         onClick={() => handleProfessorClick(professor)}
                       >
                         <div
-                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-[var(--white)] text-xs mr-2`}
+                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-white text-xs mr-2`}
                         >
                           {professor.name.charAt(0)}
                         </div>
@@ -405,7 +405,7 @@ export default function AgendarConselho() {
                         onClick={() => handleProfessorClick(professor)}
                       >
                         <div
-                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-[var(--white)] text-xs mr-2`}
+                          className={`bg-${professor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-white text-xs mr-2`}
                         >
                           {professor.name.charAt(0)}
                         </div>
@@ -418,7 +418,7 @@ export default function AgendarConselho() {
 
               {/* Right Column - Calendar */}
               <div>
-                <div className="bg-[var(--white)] border rounded-lg overflow-hidden">
+                <div className="bg-white border rounded-lg overflow-hidden">
                   <div className="grid grid-cols-7 bg-[var(--bluePrimary)] text-white text-center">
                     {["D", "S", "T", "Q", "Q", "S", "S"].map((day, index) => (
                       <div key={index} className="py-1 border-r border-[var(--blueSecondary)] last:border-r-0">
@@ -475,11 +475,11 @@ export default function AgendarConselho() {
                     Voltar
                   </button>
                   <div className="space-x-4">
-                    <button className="bg-[var(--bluePrimary)] hover:bg-[var(--blueSecondary)] text-[var(--white)] font-medium py-2 px-6 rounded-[24px]">
+                    <button className="bg-[var(--bluePrimary)] hover:bg-[var(--blueSecondary)] text-white font-medium py-2 px-6 rounded-[24px]">
                       Editar Email
                     </button>
                     <button
-                      className="bg-[var(--bluePrimary)] hover:bg-[var(--blueSecondary)] text-[var(--white)] font-medium py-2 px-6 rounded-[24px]"
+                      className="bg-[var(--bluePrimary)] hover:bg-[var(--blueSecondary)] text-white font-medium py-2 px-6 rounded-[24px]"
                       onClick={handleAgendarClick}
                     >
                       Agendar
@@ -493,17 +493,17 @@ export default function AgendarConselho() {
 
         {/* Professor Calendar Overlay */}
         {selectedProfessor && (
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[var(--white)] rounded-lg shadow-2xl overflow-hidden z-10 w-11/12 md:w-3/4 lg:w-2/3 max-h-[90vh]">
-            <div className="bg-[var(--bluePrimary)] text-[var(--white)] p-3 flex justify-between items-center">
+          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl overflow-hidden z-10 w-11/12 md:w-3/4 lg:w-2/3 max-h-[90vh]">
+            <div className="bg-[var(--bluePrimary)] text-white p-3 flex justify-between items-center">
               <div className="flex items-center">
                 <div
-                  className={`bg-${selectedProfessor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-[var(--white)] text-xs mr-2`}
+                  className={`bg-${selectedProfessor.color}-500 h-6 w-6 rounded-full flex items-center justify-center text-white text-xs mr-2`}
                 >
                   {selectedProfessor.name.charAt(0)}
                 </div>
                 <span className="font-medium">{selectedProfessor.name}</span>
               </div>
-              <button onClick={handleCloseCalendar} className="text-[var(--white)] hover:text-gray-200">
+              <button onClick={handleCloseCalendar} className="text-white hover:text-gray-200">
                 <X className="h-5 w-5" />
               </button>
             </div>

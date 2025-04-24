@@ -98,7 +98,7 @@ export default function PreConselho() {
           {isLoading ? (
             <Loading />
           ) : (
-            <div className="max-w-6xl mx-auto p-6 bg[var(--white)] rounded-lg shadow-md my-6">
+            <div className="max-w-6xl mx-auto p-6 bgwhite rounded-lg shadow-md my-6">
               {/* Conteúdo principal */}
 
               {/* Barra de progresso */}
@@ -117,7 +117,7 @@ export default function PreConselho() {
                     {showProfessorSelect ? (
                       <div className="border border-gray-300 rounded-md md:w-1/3 w-full">
                         <select
-                          className="w-full p-2 outline-none bg-[var(--white)] text-sm"
+                          className="w-full p-2 outline-none bg-white text-sm"
                           value={professor}
                           onChange={(e) => {
                             setProfessor(e.target.value)

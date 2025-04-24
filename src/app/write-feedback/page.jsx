@@ -271,7 +271,7 @@ export default function FeedbackSystem() {
           {/* Left Sidebar on Desktop, Right Sidebar on Mobile */}
           <aside
             className={`
-            bg-[var(--bluePrimary)] text-[var(--white)] flex flex-col flex-shrink-0 
+            bg-[var(--bluePrimary)] text-white flex flex-col flex-shrink-0 
               transition-all duration-300 ease-in-out z-20
               ${isMobile ? "fixed right-0 top-0 bottom-0 pt-14 z-60" : "relative left-0"}
               ${
@@ -292,7 +292,7 @@ export default function FeedbackSystem() {
             {user?.role === "tecnico" && (
               <div className="px-3 pb-2">
                 <button
-                  className="w-full bg-[var(--bluePrimary)] text-[var(--white)] py-2 px-3 rounded-[24px] text-sm font-medium hover:text-[var(--blueTertiary)]"
+                  className="w-full bg-[var(--bluePrimary)] text-white py-2 px-3 rounded-[24px] text-sm font-medium hover:text-[var(--blueTertiary)]"
                   onClick={toggleViewMode}
                 >
                   {viewMode === "students" ? "Ver professores" : "Ver alunos"}
@@ -440,7 +440,7 @@ export default function FeedbackSystem() {
                   <button
                     onClick={navigateToPrevStudent}
                     disabled={currentStudentIndex <= 0}
-                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 bg-[var(--white)] p-2 rounded-full shadow-md ${
+                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md ${
                       currentStudentIndex <= 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"
                     }`}
                   >
@@ -449,7 +449,7 @@ export default function FeedbackSystem() {
                   <button
                     onClick={navigateToNextStudent}
                     disabled={currentStudentIndex >= students.length - 1}
-                    className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-[var(--white)] p-2 rounded-full shadow-md ${
+                    className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md ${
                       currentStudentIndex >= students.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"
                     }`}
                   >
@@ -459,7 +459,7 @@ export default function FeedbackSystem() {
               )}
 
               {/* Feedback Card */}
-              <div className="bg-[var(--white)] w-[calc(100%-5rem)] mx-auto rounded-lg shadow-md overflow-hidden">
+              <div className="bg-white w-[calc(100%-5rem)] mx-auto rounded-lg shadow-md overflow-hidden">
               
                 {/* Student Info */}
                 <div className="bg-gray-200 p-3 md:p-4 flex items-center">
@@ -531,7 +531,7 @@ export default function FeedbackSystem() {
                       { error && <ErrorAlert message={error} /> }
                       <div className="flex justify-end mt-3 md:mt-4">
                         <button
-                          className="bg-[var(--bluePrimary)] text-[var(--white)] px-4 md:px-6 py-1.5 md:py-2 rounded-[24px] hover:bg-[var(--blueTertiary)] text-sm md:text-base"
+                          className="bg-[var(--bluePrimary)] text-white px-4 md:px-6 py-1.5 md:py-2 rounded-[24px] hover:bg-[var(--blueTertiary)] text-sm md:text-base"
                           onClick={handleSubmitFeedback}
                         >
                           Enviar
@@ -545,7 +545,7 @@ export default function FeedbackSystem() {
 
             {/* Fixed Mobile Toggle Button */}
             <button
-              className="md:hidden fixed bottom-4 right-4 bg-[var(--bluePrimary)] text-[var(--white)] p-3 rounded-full shadow-lg z-30"
+              className="md:hidden fixed bottom-4 right-4 bg-[var(--bluePrimary)] text-white p-3 rounded-full shadow-lg z-30"
               onClick={toggleSidebar}
               aria-label="Toggle list"
             >

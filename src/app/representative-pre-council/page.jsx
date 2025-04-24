@@ -8,7 +8,6 @@ import { BlueBackground } from "@/components/topBar/BlueBackground";
 import { useUser } from "../UserProvider";
 import { ChevronDown } from "lucide-react"
 
-import Image from "next/image";
 import {
   FileText,
   Settings,
@@ -85,7 +84,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           {/* Boas-vindas */}
           <div className="flex justify-center mt-6 mb-12">
-            <div className="bg-gradient-to-r from-[var(--bluePrimary)] to-[var(--blueSecondary)] text-[var(--white)]  px-6 py-3 rounded-full flex items-center shadow-md">
+            <div className="bg-gradient-to-r from-[var(--bluePrimary)] to-[var(--blueSecondary)] text-white  px-6 py-3 rounded-full flex items-center shadow-md">
               <span>AI PSIN 2023/2 INT 1</span>
               <ChevronDown/>
             </div>
@@ -109,7 +108,7 @@ export default function Home() {
           <div className="flex items-center justify-center mt-10 mb-20 space-x-6">
             <a
               href="/sobre"
-              className="bg-gradient-to-r from-[var(--bluePrimary)] to-[var(--blueSecondary)] text-[var(--white)] px-6 py-3 rounded-full shadow-md hover:from-blue-700 hover:to-blue-600 transition-all duration-300 inline-block"
+              className="bg-gradient-to-r from-[var(--bluePrimary)] to-[var(--blueSecondary)] text-white px-6 py-3 rounded-full shadow-md hover:from-blue-700 hover:to-blue-600 transition-all duration-300 inline-block"
             >
               Aprenda sobre nosso site
             </a>

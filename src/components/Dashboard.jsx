@@ -1,11 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { FileText, FileEdit, Settings, Users, Clock, MessageSquare, PieChart } from "lucide-react"
+import { FileText, Users, Clock, PieChart } from "lucide-react"
 import { Header } from "./Header/Header"
 import { BlueBackground } from "./topBar/BlueBackground"
 import { WhiteContainer } from "./White-Container"
 import { DashboardTitle } from "./topBar/DashboardTitle"
+import { RoutePaths } from "@/app/RoutePaths"
+import Link from "next/link"
 
 
 // Student data for the student list view
@@ -270,9 +272,11 @@ export default function Dashboard() {
                       <div className="flex-grow flex items-center justify-center my-6">
                         <img src="/assets/pre-councils/white-pre-council.svg" className="h-16 w-16" />
                       </div>
-                      <button className="bg-[var(--bluePrimary)] hover:bg-blue-900 text-white font-medium py-2 px-6 rounded-[24px] w-full">
+                      <Link href={RoutePaths.PRECOUNCIL} className="w-full">
+                      <button className="bg-[var(--bluePrimary)] hover:bg-blue-900 text-white font-medium py-2 px-6 rounded-[24px] w-full" >
                         Visualizar
                       </button>
+                      </Link>
                     </div>
                     {/* Conselho */}
                     <div className="bg-[#0166B4] text-white rounded-lg p-6 flex flex-col items-center">
@@ -285,9 +289,11 @@ export default function Dashboard() {
                       <div className="flex-grow flex items-center justify-center my-6">
                         <img src="/assets/feedbacks/council.svg" className="h-16 w-16" />
                       </div>
-                      <button className="bg-[var(--bluePrimary)] hover:bg-blue-900 text-white font-medium py-2 px-6 rounded-[24px] w-full">
+                      <Link href={RoutePaths.FEEDBACK} className="w-full">
+                      <button className="bg-[var(--bluePrimary)] hover:bg-blue-900 text-white font-medium py-2 px-6 rounded-[24px] w-full" >
                         Ver
                       </button>
+                      </Link>
                     </div>
                     {/* Gerenciamento */}
                     <div className="bg-[#0166B4] text-white rounded-lg p-6 flex flex-col items-center">

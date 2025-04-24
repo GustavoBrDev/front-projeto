@@ -29,7 +29,7 @@ export default function HelpPage() {
           </div>
 
           <Tabs defaultValue="about" className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-5 mb-8 bg-[var(--white)]">
+            <TabsList className="grid grid-cols-2 md:grid-cols-5 mb-8 bg-white">
               <TabsTrigger value="about">Sobre</TabsTrigger>
               <TabsTrigger value="roles">Perfis de Usuário</TabsTrigger>
               <TabsTrigger value="features">Funcionalidades</TabsTrigger>
@@ -40,7 +40,7 @@ export default function HelpPage() {
             {/* About Section */}
             <TabsContent value="about" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
+                <CardHeader className="bg-white border-b border-gray-200">
                   <CardTitle>Sobre o Conselho do Estudante</CardTitle>
                   <CardDescription>Conheça mais sobre nossa plataforma</CardDescription>
                 </CardHeader>
@@ -55,7 +55,7 @@ export default function HelpPage() {
                     Fevereiro de 2025 e conclusão estimada para Abril do mesmo ano.
                   </p>
                   <div className="flex flex-col md:flex-row gap-4 mt-6">
-                    <Card className="flex-1 p-4 bg-[var(--white)]">
+                    <Card className="flex-1 p-4 bg-white">
                       <div className="flex items-center gap-3 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ export default function HelpPage() {
                         Suporte para 5 tipos de usuários com diferentes permissões e funcionalidades
                       </p>
                     </Card>
-                    <Card className="flex-1 p-4 bg-[var(--white)]">
+                    <Card className="flex-1 p-4 bg-white">
                       <div className="flex items-center gap-3 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ export default function HelpPage() {
                       </div>
                       <p className="text-sm text-gray-600">Comunicação direta entre todos os usuários da plataforma</p>
                     </Card>
-                    <Card className="flex-1 p-4 bg-[var(--white)]">
+                    <Card className="flex-1 p-4 bg-white">
                       <div className="flex items-center gap-3 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ export default function HelpPage() {
             {/* User Roles Section */}
             <TabsContent value="roles" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
+                <CardHeader className="bg-white border-b border-gray-200">
                   <CardTitle>Perfis de Usuário</CardTitle>
                   <CardDescription>Conheça os diferentes tipos de usuários e suas permissões</CardDescription>
                 </CardHeader>
@@ -141,7 +141,7 @@ export default function HelpPage() {
                     <AccordionItem value="aluno">
                       <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
+                          <Badge variant="outline" className="bg-white text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Aluno
                           </Badge>
                           <span>Acesso básico ao sistema</span>
@@ -161,7 +161,7 @@ export default function HelpPage() {
                     <AccordionItem value="representante">
                       <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
+                          <Badge variant="outline" className="bg-white text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Representante
                           </Badge>
                           <span>Representante de turma</span>
@@ -182,7 +182,7 @@ export default function HelpPage() {
                     <AccordionItem value="professor">
                       <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
+                          <Badge variant="outline" className="bg-white text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Professor
                           </Badge>
                           <span>Docentes da instituição</span>
@@ -204,7 +204,7 @@ export default function HelpPage() {
                     <AccordionItem value="tecnico">
                       <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
+                          <Badge variant="outline" className="bg-white text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Técnico Pedagógico
                           </Badge>
                           <span>Equipe pedagógica</span>
@@ -230,7 +230,7 @@ export default function HelpPage() {
                     <AccordionItem value="orientador">
                       <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
+                          <Badge variant="outline" className="bg-white text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Orientador Pedagógico
                           </Badge>
                           <span>Coordenação pedagógica</span>
@@ -257,7 +257,7 @@ export default function HelpPage() {
                     <AccordionItem value="admin">
                       <AccordionTrigger className="hover:text-[var(--blueTertiary)]">
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="bg-[var(--white)] text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
+                          <Badge variant="outline" className="bg-white text-[var(--bluePrimary)] border-[var(--bluePrimary)]">
                             Administrador
                           </Badge>
                           <span>Administração do sistema</span>
@@ -280,7 +280,7 @@ export default function HelpPage() {
             {/* Features Section */}
             <TabsContent value="features" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
+                <CardHeader className="bg-white border-b border-gray-200">
                   <CardTitle>Principais Funcionalidades</CardTitle>
                   <CardDescription>Conheça os recursos disponíveis na plataforma</CardDescription>
                 </CardHeader>
@@ -446,7 +446,7 @@ export default function HelpPage() {
             {/* Technical Information */}
             <TabsContent value="technical" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
+                <CardHeader className="bg-white border-b border-gray-200">
                   <CardTitle>Informações Técnicas</CardTitle>
                   <CardDescription>Detalhes sobre a arquitetura e tecnologias utilizadas</CardDescription>
                 </CardHeader>
@@ -550,7 +550,7 @@ export default function HelpPage() {
             {/* Getting Started */}
             <TabsContent value="start" className="space-y-6">
               <Card>
-                <CardHeader className="bg-[var(--white)] border-b border-gray-200">
+                <CardHeader className="bg-white border-b border-gray-200">
                   <CardTitle>Primeiros Passos</CardTitle>
                   <CardDescription>Como começar a utilizar o Conselho do Estudante</CardDescription>
                 </CardHeader>
@@ -562,7 +562,7 @@ export default function HelpPage() {
                       recebido suas credenciais, entre em contato com o administrador do sistema.
                     </p>
 
-                    <div className="bg-[var(--white)] p-4 rounded-md">
+                    <div className="bg-white p-4 rounded-md">
                       <div className="flex items-center gap-2 mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -710,7 +710,7 @@ export default function HelpPage() {
 
       {/* Chat button flutuante */}
       <div className="fixed bottom-6 right-6">
-        <button className="w-12 h-12 bg-[var(--bluePrimary)] text-[var(--white)] rounded-full shadow-lg flex items-center justify-center hover:bg-[#004080] transition-colors">
+        <button className="w-12 h-12 bg-[var(--bluePrimary)] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#004080] transition-colors">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

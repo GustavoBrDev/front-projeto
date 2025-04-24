@@ -7,6 +7,8 @@ import { Header } from "@/components/Header/Header"
 import { BlueBackground } from "@/components/topBar/BlueBackground"
 import { WhiteContainer } from "@/components/White-Container"
 import { CouncilTitle } from "@/components/topBar/CouncilTitle"
+import { RoutePaths } from "../RoutePaths"
+import Link from "next/link"
 
 // Registrando os componentes necessários do Chart.js
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -271,18 +273,19 @@ export default function ConselhoDeClasse() {
         {/* Cards Grid - Primeira linha */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           {conselhos.slice(0, 3).map((conselho) => (
+            <Link key={conselho.id} href={RoutePaths.DASHBOARD}>
             <div
               key={conselho.id}
-              className="bg-[var(--white)] rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col"
+              className="bg-white rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col"
             >
-              <div className="bg-[var(--bluePrimary)] text-[var(--white)] py-2 px-3 flex justify-between items-center">
+              <div className="bg-[var(--bluePrimary)] text-white py-2 px-3 flex justify-between items-center">
                 <div>
                   <h3 className="font-bold text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                     {conselho.titulo}
                   </h3>
                   <p className="text-xs">{conselho.data}</p>
                 </div>
-                <button className="text-[var(--white)]">
+                <button className="text-white">
                   <FileText className="h-4 w-4" />
                 </button>
               </div>
@@ -296,8 +299,8 @@ export default function ConselhoDeClasse() {
                       {conselho.equipe.map((membro, index) => (
                         <div
                           key={membro.id}
-                          className={`w-7 h-7 rounded-full border-2 border-[var(--white)] ${
-                            index === 0 ? "bg-[var(--bluePrimary)] flex items-center justify-center text-[var(--white)] text-[10px]" : ""
+                          className={`w-7 h-7 rounded-full border-2 border-white ${
+                            index === 0 ? "bg-[var(--bluePrimary)] flex items-center justify-center text-white text-[10px]" : ""
                           }`}
                         >
                           {index === 0 ? (
@@ -316,7 +319,7 @@ export default function ConselhoDeClasse() {
                     <h4 className="font-bold text-xs mb-1 whitespace-nowrap">Professores Atribuídos</h4>
                     <div className="flex -space-x-1">
                       {conselho.professores.map((professor) => (
-                        <div key={professor.id} className="w-7 h-7 rounded-full border-2 border-[var(--white)]">
+                        <div key={professor.id} className="w-7 h-7 rounded-full border-2 border-white">
                           <img
                             src={professor.avatar || "/placeholder.svg"}
                             alt={professor.nome}
@@ -345,7 +348,7 @@ export default function ConselhoDeClasse() {
                             {etapa.concluido && (
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="h-2 w-2 text-[var(--white)]"
+                                className="h-2 w-2 text-white"
                                 viewBox="0 0 20 20"
                                 fill="currentColor"
                               >
@@ -365,21 +368,23 @@ export default function ConselhoDeClasse() {
                 </div>
               </div>
             </div>
+            
+            </Link>
           ))}
         </div>
 
         {/* Cards Grid - Segunda linha */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Card 4 - Liberação do Feedback */}
-          <div className="bg-[var(--white)] rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col">
-            <div className="bg-[var(--bluePrimary)] text-[var(--white)] py-2 px-3 flex justify-between items-center">
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col">
+            <div className="bg-[var(--bluePrimary)] text-white py-2 px-3 flex justify-between items-center">
               <div>
                 <h3 className="font-bold text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                   {conselhos[3].titulo}
                 </h3>
                 <p className="text-xs">{conselhos[3].data}</p>
               </div>
-              <button className="text-[var(--white)]">
+              <button className="text-white">
                 <FileText className="h-4 w-4" />
               </button>
             </div>
@@ -393,8 +398,8 @@ export default function ConselhoDeClasse() {
                     {conselhos[3].equipe.map((membro, index) => (
                       <div
                         key={membro.id}
-                        className={`w-7 h-7 rounded-full border-2 border-[var(--white)] ${
-                          index === 0 ? "bg-[var(--bluePrimary)] flex items-center justify-center text-[var(--white)] text-[10px]" : ""
+                        className={`w-7 h-7 rounded-full border-2 border-white ${
+                          index === 0 ? "bg-[var(--bluePrimary)] flex items-center justify-center text-white text-[10px]" : ""
                         }`}
                       >
                         {index === 0 ? (
@@ -413,7 +418,7 @@ export default function ConselhoDeClasse() {
                   <h4 className="font-bold text-xs mb-1 whitespace-nowrap">Professores Atribuídos</h4>
                   <div className="flex -space-x-1">
                     {conselhos[3].professores.map((professor) => (
-                      <div key={professor.id} className="w-7 h-7 rounded-full border-2 border-[var(--white)]">
+                      <div key={professor.id} className="w-7 h-7 rounded-full border-2 border-white">
                         <img
                           src={professor.avatar || "/placeholder.svg"}
                           alt={professor.nome}
@@ -432,7 +437,7 @@ export default function ConselhoDeClasse() {
                   </div>
 
                   <div className="flex justify-center mb-2">
-                    <div className="bg-[var(--blueSecondary)] text-[var(--white)] rounded-full px-4 py-1 flex items-center justify-between gap-1">
+                    <div className="bg-[var(--blueSecondary)] text-white rounded-full px-4 py-1 flex items-center justify-between gap-1">
                       <div className="text-center">
                         <div className="text-sm font-bold">{countdown.dias}</div>
                         <div className="text-[10px]">DIAS</div>
@@ -458,16 +463,16 @@ export default function ConselhoDeClasse() {
           {conselhos.slice(4, 6).map((conselho) => (
             <div
               key={conselho.id}
-              className="bg-[var(--white)] rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col"
+              className="bg-white rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col"
             >
-              <div className="bg-[var(--bluePrimary)] text-[var(--white)] py-2 px-3 flex justify-between items-center">
+              <div className="bg-[var(--bluePrimary)] text-white py-2 px-3 flex justify-between items-center">
                 <div>
                   <h3 className="font-bold text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                     {conselho.titulo}
                   </h3>
                   <p className="text-xs">{conselho.data}</p>
                 </div>
-                <button className="text-[var(--white)]">
+                <button className="text-white">
                   <FileText className="h-4 w-4" />
                 </button>
               </div>
@@ -501,10 +506,10 @@ export default function ConselhoDeClasse() {
                   <div className="w-1/2 pl-1 border-l border-gray-200 flex flex-col">
                     <h4 className="font-bold text-[11px] mb-0.5 whitespace-nowrap">Ações Rápidas</h4>
                     <div className="space-y-1.5 flex-1 flex flex-col justify-center">
-                      <button className="w-full py-0.5 bg-[var(--blueSecondary)] text-[var(--white)] rounded text-[11px] whitespace-nowrap">
+                      <button className="w-full py-0.5 bg-[var(--blueSecondary)] text-white rounded text-[11px] whitespace-nowrap">
                         Ver Conselho
                       </button>
-                      <button className="w-full py-0.5 bg-[var(--blueSecondary)] text-[var(--white)] rounded text-[11px] whitespace-nowrap">
+                      <button className="w-full py-0.5 bg-[var(--blueSecondary)] text-white rounded text-[11px] whitespace-nowrap">
                         Ver Pré-Conselho
                       </button>
                     </div>

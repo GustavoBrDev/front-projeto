@@ -20,5 +20,8 @@ export const RoutePaths = {
     USERS: "/listUsers",
     CLASSES: "/classes",
     COURSES: "/list-course",
+    DASHBOARD: "/dashboard",
+    PRECOUNCIL: "/write-precouncil",
+    FEEDBACK: "/write-feedback",
     };
   
