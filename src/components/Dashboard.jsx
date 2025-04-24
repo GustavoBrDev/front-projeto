@@ -131,7 +131,7 @@ export default function Dashboard() {
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-5 h-5 flex items-center justify-center">
-                        <img src="/assets/chats/white-chat.png" />
+                        <img src="/assets/chats/white-chat.svg" />
                       </div>
                       <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
                         <img src="/assets/rights/green-right-filled-icon.png"/>
