@@ -43,10 +43,17 @@ export default function ResetPassword( { params } ) {
   if (isSmallScreen) {
     logoWidth = 100;
     logoHeight = 100;
-    principalWidth = 400;
-    principalHeight = 400;
+    principalWidth = 300;
+    principalHeight = 300;
     iconeWidth = 20;
     iconeHeight = 20;
+  } else {
+    logoWidth = 200;
+    logoHeight = 200;
+    principalWidth = 600;
+    principalHeight = 600; 
+    iconeWidth = 30;
+    iconeHeight = 30;
   }
 
   /**
@@ -150,7 +157,7 @@ export default function ResetPassword( { params } ) {
 
               <button
                 type="submit"
-                className="bg-[var(--bluePrimary)] font-semibold rounded-md py-2 px-4 w-full text-[var(--white)] mt-4"
+                className="bg-[var(--bluePrimary)] font-semibold rounded-md py-2 px-4 w-full text-white mt-4"
               >
                 Alterar
               </button>
@@ -158,7 +165,7 @@ export default function ResetPassword( { params } ) {
               <div className="mt-4 text-center mb-6">
                 <a
                   onClick={handleLogin}
-                  className="underline hover:text-[var(--bluePrimary)] md:text-[var(--white)] text-[var(--black)] cursor-pointer"
+                  className="underline hover:text-[var(--bluePrimary)] md:text-white text-[var(--black)] cursor-pointer"
                 >
                   Voltar para o Login
                 </a>

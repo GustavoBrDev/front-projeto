@@ -7,6 +7,8 @@ import { Header } from "@/components/Header/Header"
 import { BlueBackground } from "@/components/topBar/BlueBackground"
 import { WhiteContainer } from "@/components/White-Container"
 import { CouncilTitle } from "@/components/topBar/CouncilTitle"
+import { RoutePaths } from "../RoutePaths"
+import Link from "next/link"
 
 // Registrando os componentes necessários do Chart.js
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -244,7 +246,6 @@ export default function ConselhoDeClasse() {
   return (
     <div className="min-h-screen bg-gray-100 mx-auto">
       <Header />
-      
       <BlueBackground>
         <CouncilTitle iconWidth={40} iconHeight={40} textSize={"3xl"}/>
       </BlueBackground>
@@ -272,11 +273,12 @@ export default function ConselhoDeClasse() {
         {/* Cards Grid - Primeira linha */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           {conselhos.slice(0, 3).map((conselho) => (
+            <Link key={conselho.id} href={RoutePaths.DASHBOARD}>
             <div
               key={conselho.id}
               className="bg-white rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col"
             >
-              <div className="bg-blue-600 text-white py-2 px-3 flex justify-between items-center">
+              <div className="bg-[var(--bluePrimary)] text-white py-2 px-3 flex justify-between items-center">
                 <div>
                   <h3 className="font-bold text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                     {conselho.titulo}
@@ -298,7 +300,7 @@ export default function ConselhoDeClasse() {
                         <div
                           key={membro.id}
                           className={`w-7 h-7 rounded-full border-2 border-white ${
-                            index === 0 ? "bg-blue-600 flex items-center justify-center text-white text-[10px]" : ""
+                            index === 0 ? "bg-[var(--bluePrimary)] flex items-center justify-center text-white text-[10px]" : ""
                           }`}
                         >
                           {index === 0 ? (
@@ -340,7 +342,7 @@ export default function ConselhoDeClasse() {
                         >
                           <div
                             className={`w-4 h-4 rounded-full flex items-center justify-center ${
-                              etapa.concluido ? "bg-green-500" : "border border-gray-300"
+                              etapa.concluido ? "bg-[var(--green)]" : "border border-gray-300"
                             }`}
                           >
                             {etapa.concluido && (
@@ -366,6 +368,8 @@ export default function ConselhoDeClasse() {
                 </div>
               </div>
             </div>
+            
+            </Link>
           ))}
         </div>
 
@@ -373,7 +377,7 @@ export default function ConselhoDeClasse() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Card 4 - Liberação do Feedback */}
           <div className="bg-white rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col">
-            <div className="bg-blue-600 text-white py-2 px-3 flex justify-between items-center">
+            <div className="bg-[var(--bluePrimary)] text-white py-2 px-3 flex justify-between items-center">
               <div>
                 <h3 className="font-bold text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                   {conselhos[3].titulo}
@@ -395,7 +399,7 @@ export default function ConselhoDeClasse() {
                       <div
                         key={membro.id}
                         className={`w-7 h-7 rounded-full border-2 border-white ${
-                          index === 0 ? "bg-blue-600 flex items-center justify-center text-white text-[10px]" : ""
+                          index === 0 ? "bg-[var(--bluePrimary)] flex items-center justify-center text-white text-[10px]" : ""
                         }`}
                       >
                         {index === 0 ? (
@@ -433,7 +437,7 @@ export default function ConselhoDeClasse() {
                   </div>
 
                   <div className="flex justify-center mb-2">
-                    <div className="bg-blue-800 text-white rounded-full px-4 py-1 flex items-center justify-between gap-1">
+                    <div className="bg-[var(--blueSecondary)] text-white rounded-full px-4 py-1 flex items-center justify-between gap-1">
                       <div className="text-center">
                         <div className="text-sm font-bold">{countdown.dias}</div>
                         <div className="text-[10px]">DIAS</div>
@@ -461,7 +465,7 @@ export default function ConselhoDeClasse() {
               key={conselho.id}
               className="bg-white rounded-lg border border-gray-200 overflow-hidden h-[180px] flex flex-col"
             >
-              <div className="bg-blue-600 text-white py-2 px-3 flex justify-between items-center">
+              <div className="bg-[var(--bluePrimary)] text-white py-2 px-3 flex justify-between items-center">
                 <div>
                   <h3 className="font-bold text-sm whitespace-nowrap overflow-hidden text-ellipsis">
                     {conselho.titulo}
@@ -502,10 +506,10 @@ export default function ConselhoDeClasse() {
                   <div className="w-1/2 pl-1 border-l border-gray-200 flex flex-col">
                     <h4 className="font-bold text-[11px] mb-0.5 whitespace-nowrap">Ações Rápidas</h4>
                     <div className="space-y-1.5 flex-1 flex flex-col justify-center">
-                      <button className="w-full py-0.5 bg-blue-800 text-white rounded text-[11px] whitespace-nowrap">
+                      <button className="w-full py-0.5 bg-[var(--blueSecondary)] text-white rounded text-[11px] whitespace-nowrap">
                         Ver Conselho
                       </button>
-                      <button className="w-full py-0.5 bg-blue-800 text-white rounded text-[11px] whitespace-nowrap">
+                      <button className="w-full py-0.5 bg-[var(--blueSecondary)] text-white rounded text-[11px] whitespace-nowrap">
                         Ver Pré-Conselho
                       </button>
                     </div>

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { HeaderDemo } from "@/components/Header/HeaderDemo"
 import { Header } from "@/components/Header/Header"
 import { BlueBackground } from "@/components/topBar/BlueBackground"
 import { WhiteContainer } from "@/components/White-Container"
@@ -149,7 +148,6 @@ const disciplinesData = [
   { value: "Desenvolvimento Web", label: "Desenvolvimento Web" },
 ]
 
-const filterOptions = [ "Disciplina", "Strenghts", "Improvements", "Suggestions" ];
 
 export default function FeedbacksPage() {
   const { user } = useUser()
@@ -160,13 +158,6 @@ export default function FeedbacksPage() {
   const isStudentOrRepresentative = ["aluno", "representante"].includes(user?.role)
   const isProfessor = user?.role === "professor"
   const isSupervisorOrTechnical = ["supervisor", "tecnico"].includes(user?.role)
-
-  const filterOptions = [
-    { label: 'Disciplina', value: 'Disciplina' },
-    { label: 'Strenghts', value: 'Strenghts' },
-    { label: 'Improvements', value: 'Improvements' },
-    { label: 'Suggestions', value: 'Suggestions' }
-  ];
 
   // Filtros combinados
   const filteredTeacherFeedbacks = teacherFeedbackData
@@ -210,7 +201,6 @@ export default function FeedbacksPage() {
                     <SearchBar
                     placeholder="Pesquisar por disciplina ou feedback"
                     onChange={setSearchQuery}
-                    filterOptions={filterOptions}
                   />
                 </div>
               )}
@@ -257,7 +247,6 @@ export default function FeedbacksPage() {
           )}
         </WhiteContainer>
       </div>
-      <HeaderDemo />
     </div>
   )
 }

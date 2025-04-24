@@ -36,15 +36,15 @@ export default function ForgotPassword () {
   if (isSmallScreen) {
     logoWidth = 100;
     logoHeight = 100;
-    principalWidth = 400;
-    principalHeight = 400;
+    principalWidth = 300;
+    principalHeight = 300;
     iconeWidth = 20;
     iconeHeight = 20;
   } else {
     logoWidth = 200;
     logoHeight = 200;
-    principalWidth = 800;
-    principalHeight = 800; 
+    principalWidth = 600;
+    principalHeight = 600; 
     iconeWidth = 30;
     iconeHeight = 30;
   }
@@ -142,7 +142,7 @@ export default function ForgotPassword () {
               value={email}
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full md:text-[var(--white)] bg-transparent border-b-2 ${
+              className={`w-full md:text-white bg-transparent border-b-2 ${
                 email.trim() === '' && error
                   ? 'border-red-500'
                   : 'border-gray-300'
@@ -169,7 +169,7 @@ export default function ForgotPassword () {
             className={
               firstEmailSent 
                 ? 'bg-[var(--bluePrimary)] font-semibold rounded-md py-2 px-4 w-full text-[var(--gray)]'
-                : 'bg-[var(--bluePrimary)] font-semibold rounded-md py-2 px-4 w-full text-[var(--white)]'
+                : 'bg-[var(--bluePrimary)] font-semibold rounded-md py-2 px-4 w-full text-white'
             }
           >
             Enviar
@@ -178,7 +178,7 @@ export default function ForgotPassword () {
           <div className="mt-4 text-center mb-6">
             <a
               onClick={handleLogin}
-              className="underline md:text-[var(--white)] hover:text-[var(--blueTertiary)] cursor-pointer"
+              className="underline md:text-white hover:text-[var(--blueTertiary)] cursor-pointer"
             >
               Voltar para o Login
             </a>

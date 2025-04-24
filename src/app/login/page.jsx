@@ -13,7 +13,6 @@ import { useRouter } from 'next/navigation';
 import AnonymousOnly  from '../AnonymousOnly';
 import { RoutePaths } from '../RoutePaths';
 import { ErrorAlert } from '@/components/alerts/ErrorAlert';
-import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { React } from 'react';
 import AcessLeft from '@/components/AcessLeft';
@@ -38,15 +37,15 @@ export default function Login () {
   if (isSmallScreen) {
     logoWidth = 100;
     logoHeight = 100;
-    principalWidth = 400;
-    principalHeight = 400;
+    principalWidth = 300;
+    principalHeight = 300;
     iconeWidth = 20;
     iconeHeight = 20;
   } else {
     logoWidth = 200;
     logoHeight = 200;
-    principalWidth = 800;
-    principalHeight = 800; 
+    principalWidth = 600;
+    principalHeight = 600; 
     iconeWidth = 30;
     iconeHeight = 30;
   }
@@ -85,13 +84,15 @@ export default function Login () {
       return;
     }
 
-    signIn('credentials', email, password).then(() => {
+    /*signIn('credentials', email, password).then(() => {
       setError('');
       router.push(RoutePaths.HOME);
     }).catch((error) => {
       setError(error.message);
       console.log(error);
-    });
+    });*/
+
+    router.push(RoutePaths.HOME);
     
   };
 
@@ -112,7 +113,7 @@ export default function Login () {
               value={email}
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full md:text-[var(--white)] bg-transparent border-b-2 ${
+              className={`w-full md:text-white bg-transparent border-b-2 ${
                 email.trim() === '' && error
                   ? 'border-red-500'
                   : 'border-gray-300'
@@ -132,14 +133,14 @@ export default function Login () {
           <div className="mt-4 text-right mb-6">
             <a
               href={RoutePaths.FORGOT_PASSWORD}
-              className="underline md:text-[var(--white)] hover:text-[var(--bluePrimary)]"
+              className="underline md:text-white hover:text-[var(--bluePrimary)]"
             >
               Esqueceu a senha?
             </a>
           </div>
           <button
             type="submit"
-            className="bg-[var(--bluePrimary)] font-semibold rounded-md py-2 px-4 w-full text-[var(--white)]"
+            className="bg-[var(--bluePrimary)] font-semibold rounded-md py-2 px-4 w-full text-white"
           >
             Login
           </button>

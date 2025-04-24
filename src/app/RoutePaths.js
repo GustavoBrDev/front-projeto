@@ -15,7 +15,13 @@ export const RoutePaths = {
     CONFIGURATION: "/configuration",
     CHAT: "/chat",
     PRE_COUNCILS: "/pre-councils",
-    COUNCILS: "/councils",
+    COUNCILS: "/classCouncil",
     ERROR: "/error",
+    USERS: "/listUsers",
+    CLASSES: "/classes",
+    COURSES: "/list-course",
+    DASHBOARD: "/dashboard",
+    PRECOUNCIL: "/write-precouncil",
+    FEEDBACK: "/write-feedback",
     };
   
