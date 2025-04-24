@@ -292,7 +292,7 @@ export default function FeedbackSystem() {
             {user?.role === "tecnico" && (
               <div className="px-3 pb-2">
                 <button
-                  className="w-full bg-[var(--bluePrimary)] text-white py-2 px-3 rounded-[24px] text-sm font-medium hover:text-[var(--blueTertiary)]"
+                  className="w-full bg-[var(--blueSecondary)] text-white py-2 px-3 rounded-[24px] text-sm font-medium hover:text-[var(--blueTertiary)]"
                   onClick={toggleViewMode}
                 >
                   {viewMode === "students" ? "Ver professores" : "Ver alunos"}
